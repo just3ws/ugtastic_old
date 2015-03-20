@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319223249) do
+ActiveRecord::Schema.define(version: 20150320045315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 20150319223249) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "role"
+  end
+
+  create_table "you_tube_playlists", primary_key: "playlist_id", force: :cascade do |t|
+    t.json     "cache"
+    t.string   "etag",                        null: false
+    t.string   "title",                       null: false
+    t.text     "description"
+    t.string   "state",       default: "new"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "you_tube_videos", id: false, force: :cascade do |t|
+    t.json     "cache"
+    t.string   "title",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
