@@ -35,10 +35,10 @@ group :development do
   gem 'spring-commands-rspec'
 end
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'pry-rails'
-  gem 'pry-rescue'
+  gem 'jazz_fingers'
   gem 'rspec-rails'
   gem 'rubocop'
 end
@@ -51,3 +51,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+gem 'google-api-client'
