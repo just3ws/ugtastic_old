@@ -53,3 +53,6 @@ group :test do
 end
 
 gem 'google-api-client'
+gem 'multi_json'
+gem 'oj'
+gem 'oj_mimic_json'
