@@ -4,7 +4,7 @@ class YouTube::VideosController < ApplicationController
   # GET /you_tube/videos
   # GET /you_tube/videos.json
   def index
-    @you_tube_videos = YouTube::Video.all
+    @you_tube_videos = YouTube::Video.all.page(params[:page])
   end
 
   # GET /you_tube/videos/1
