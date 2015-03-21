@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320045315) do
+ActiveRecord::Schema.define(version: 20150320200459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,19 @@ ActiveRecord::Schema.define(version: 20150320045315) do
     t.integer  "role"
   end
 
-  create_table "you_tube_playlists", primary_key: "playlist_id", force: :cascade do |t|
+  create_table "you_tube_playlist_videos", force: :cascade do |t|
+    t.integer  "playlist_id", null: false
+    t.integer  "video_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "you_tube_playlist_videos", ["playlist_id"], name: "index_you_tube_playlist_videos_on_playlist_id", using: :btree
+  add_index "you_tube_playlist_videos", ["video_id", "playlist_id"], name: "index_you_tube_playlist_videos_on_video_id_and_playlist_id", using: :btree
+  add_index "you_tube_playlist_videos", ["video_id"], name: "index_you_tube_playlist_videos_on_video_id", using: :btree
+
+  create_table "you_tube_playlists", force: :cascade do |t|
+    t.string   "playlist_id",                 null: false
     t.json     "cache"
     t.string   "etag",                        null: false
     t.string   "title",                       null: false
@@ -35,11 +47,15 @@ ActiveRecord::Schema.define(version: 20150320045315) do
     t.datetime "updated_at",                  null: false
   end
 
-  create_table "you_tube_videos", id: false, force: :cascade do |t|
+  create_table "you_tube_videos", force: :cascade do |t|
+    t.string   "video_id",                    null: false
     t.json     "cache"
-    t.string   "title",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "etag",                        null: false
+    t.string   "title",                       null: false
+    t.text     "description"
+    t.string   "state",       default: "new"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

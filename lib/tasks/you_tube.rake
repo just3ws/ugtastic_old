@@ -2,13 +2,10 @@ require 'dotenv/tasks'
 require 'google/api_client'
 
 namespace :you_tube do
-
   namespace :import do
-
     namespace :channel do
       desc 'Imports YouTube videos for channel'
       task videos: %i(dotenv environment) do
-
         client = Google::APIClient.new(
           key: ENV['GOOGLE_API_KEY'],
           authorization: nil,
@@ -25,9 +22,6 @@ namespace :you_tube do
 
         items = []
 
-
-# TODO VIDEOS CAN BELONG TO MANY PLAYLISTS
-
         loop do
           data = client.execute!(
             api_method: yt.playlist_items.list,
@@ -42,23 +36,25 @@ namespace :you_tube do
 
           data.items.each_with_object(items) { |item| items << item }
 
-          if data.respond_to?(:nextPageToken)
-            next_page_token = data.nextPageToken
-          else
-            break
-          end
+          next_page_token = data.nextPageToken rescue break
         end
 
         items.each do |item|
-          YouTube::Video.find_or_create_by(video_id: item.id) do |video|
-            next if video.etag == item.etag
+          next if YouTube::Video.exists?(etag: item.etag)
 
-            video.playlist = playlist
+          begin
+            video = YouTube::Video.find_or_create_by(video_id: item.snippet.resourceId.videoId) do |v|
+              v.video_id    = item.snippet.resourceId.videoId
+              v.cache       = item.to_json
+              v.etag        = item.etag
+              v.title       = item.snippet.title
+              v.description = item.snippet.description
+            end
 
-            video.cache          = item.to_json
-            video.etag           = item.etag
-            video.title          = item.snippet.title
-            video.description    = item.snippet.description
+            playlist.videos << video
+
+          rescue ActiveRecord::RecordInvalid => rie
+            ap [rie, item]
           end
         end
       end
@@ -93,21 +89,22 @@ namespace :you_tube do
 
           data.items.each_with_object(items) { |item| items << item }
 
-          if data.respond_to?(:nextPageToken)
-            next_page_token = data.nextPageToken
-          else
-            break
-          end
+          next_page_token = data.nextPageToken rescue break
         end
 
         items.each do |item|
-          YouTube::Playlist.find_or_create_by(playlist_id: item.id) do |playlist|
-            next if playlist.etag == item.etag
+          next if YouTube::Playlist.exists?(etag: item.etag)
 
-            playlist.cache       = item.to_json
-            playlist.etag        = item.etag
-            playlist.title       = item.snippet.title
-            playlist.description = item.snippet.description
+          begin
+            YouTube::Playlist.find_or_create_by(playlist_id: item.id) do |playlist|
+              playlist.playlist_id = item.id
+              playlist.cache       = item.to_json
+              playlist.etag        = item.etag
+              playlist.title       = item.snippet.title
+              playlist.description = item.snippet.description
+            end
+          rescue ActiveRecord::RecordInvalid => rie
+            ap [rie, item]
           end
         end
       end

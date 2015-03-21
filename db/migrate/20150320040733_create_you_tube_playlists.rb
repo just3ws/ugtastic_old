@@ -1,7 +1,8 @@
 class CreateYouTubePlaylists < ActiveRecord::Migration
-  def change
-    create_table :you_tube_playlists, id: false do |t|
+  def up
+    create_table :you_tube_playlists do |t|
       t.string :playlist_id, null: false, unique: true
+
       t.json :cache
 
       t.string :etag, null: false, unique: true
@@ -12,6 +13,9 @@ class CreateYouTubePlaylists < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    execute 'ALTER TABLE you_tube_playlists ADD PRIMARY KEY (playlist_id);'
+  end
+
+  def down
+    drop_table :you_tube_playlists
   end
 end
