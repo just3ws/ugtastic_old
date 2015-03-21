@@ -37,7 +37,6 @@ group :development do
   gem 'spring-commands-rspec'
 end
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'jazz_fingers'
@@ -58,3 +57,4 @@ gem 'google-api-client'
 gem 'multi_json'
 gem 'oj'
 gem 'oj_mimic_json'
+gem 'dotenv-rails'

@@ -62,13 +62,14 @@ class YouTube::VideosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_you_tube_video
-      @you_tube_video = YouTube::Video.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def you_tube_video_params
-      params[:you_tube_video]
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_you_tube_video
+    @you_tube_video = YouTube::Video.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def you_tube_video_params
+    params[:you_tube_video]
+  end
 end
