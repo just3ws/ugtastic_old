@@ -395,6 +395,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  awesome_print
   better_errors
   byebug
   capybara
