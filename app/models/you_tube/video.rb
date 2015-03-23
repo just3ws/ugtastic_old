@@ -1,3 +1,4 @@
+require 'ostruct'
 module YouTube
   class Video < ActiveRecord::Base
     validates :video_id, presence: true, uniqueness: true
@@ -6,6 +7,15 @@ module YouTube
 
     has_many :playlist_videos
     has_many :playlists, through: :playlist_videos, class_name: 'YouTube::Playlist'
+
+    def thumbnail(size = 'default')
+      case size.to_s.downcase
+      when 'default', 'medium', 'high', 'standard'
+        OpenStruct.new(cache['snippet']['thumbnails'][size])
+      else
+        fail "Unknown thumnail size \"#{size}\"."
+      end
+    end
   end
 end
 
