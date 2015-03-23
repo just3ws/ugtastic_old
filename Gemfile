@@ -63,7 +63,6 @@ group :test do
   gem 'capybara-screenshot'
   gem 'codeclimate-test-reporter', require: false
   gem 'coveralls', require: false
-  gem 'database_cleaner'
   gem 'fuubar'
   gem 'launchy'
   gem 'poltergeist', require: false
