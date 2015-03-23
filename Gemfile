@@ -40,9 +40,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-rails'
-  gem 'guard-rspec'
   gem 'guard-rspec', require: false
-  gem 'html2haml'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', require: false
@@ -55,15 +53,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'byebug'
-  gem 'factory_girl_rails'
   gem 'faker'
   gem 'jazz_fingers'
-  gem 'pry-rails'
-  gem 'pry-rescue'
   gem 'rspec-rails'
-  gem 'spring'
-  gem 'web-console', '~> 2.0'
 end
 
 group :test do
