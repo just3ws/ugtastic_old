@@ -66,7 +66,6 @@ group :test do
   gem 'fuubar'
   gem 'launchy'
   gem 'poltergeist', require: false
-  gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
   gem 'timecop'
 end
