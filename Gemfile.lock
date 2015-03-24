@@ -67,6 +67,9 @@ GEM
       sass (~> 3.0)
       terminal-table (~> 1.4)
     builder (3.2.2)
+    bullet (4.14.4)
+      activesupport (>= 3.0.0)
+      uniform_notifier (>= 1.6.0)
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
@@ -327,6 +330,9 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.0)
+    rack-livereload (0.3.15)
+      rack
+    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.1)
@@ -469,6 +475,7 @@ GEM
       unf_ext
     unf_ext (0.0.6)
     unicode_utils (1.4.0)
+    uniform_notifier (1.8.0)
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -488,7 +495,9 @@ DEPENDENCIES
   annotate
   awesome_print
   better_errors
+  binding_of_caller
   brakeman
+  bullet
   capybara
   capybara-screenshot
   cloudinary
@@ -526,6 +535,8 @@ DEPENDENCIES
   poltergeist
   puma
   quiet_assets
+  rack-livereload
+  rack-rewrite
   rails (~> 4.2.1)
   rails_12factor
   rails_layout

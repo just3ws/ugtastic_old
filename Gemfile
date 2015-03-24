@@ -35,13 +35,16 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'annotate'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'brakeman'
+  gem 'bullet'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-rails'
   gem 'guard-rspec', require: false
   gem 'quiet_assets'
+  gem 'rack-livereload'
   gem 'rails_layout'
   gem 'rb-fchange', require: false
   gem 'rb-fsevent', require: false
@@ -75,3 +78,5 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
+
+gem 'rack-rewrite'
