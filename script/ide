@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+function tmux-new-simple-tab {
+  # $1 = session number
+  # $2 = name
+  # $3 = command to execute
+  tmux new-window -t $SESSION:$1 -n $2
+  tmux select-window -t $SESSION:$1
+  tmux select-pane -t 0
+  tmux send-keys "$3" C-m
+}
+
+# Define session name
+
+SESSION=ugtastic
+
+# Go to working directory
+
+cd $HOME/ugtastic/ugtastic
+
+rvm current
+
+if [[ $USE_VAGRANT -eq 1 ]]; then
+  vagrant up
+fi
+
+# Session Exists?
+
+tmux has-session -t $SESSION
+if [ $? -eq 0 ]; then
+  echo "Session $SESSION already exists. Attaching."
+  sleep 1
+  tmux attach -t $SESSION
+  exit 0;
+fi
+
+rm -rf log/*.log
+rm -rf tmp/cache
+
+bundle check || bundle install
+bundle clean --force
+bundle exec spring binstub --all
+
+bundle exec rake db:create:all
+RAILS_ENV=test bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+
+bundle exec rake db:test:prepare
+
+# Pre-flight Configuration
+
+#postgres -D /usr/local/var/postgres &> log/postgres.log &
+
+tmux -2 new-session -d -s $SESSION
+
+# Create windows
+tmux new-window -t $SESSION:1 -n "code"
+tmux new-window -t $SESSION:2 -n "web"
+tmux new-window -t $SESSION:3 -n "worker"
+tmux new-window -t $SESSION:4 -n "livereload"
+tmux new-window -t $SESSION:5 -n "logs"
+
+# Define window roles
+
+# Code
+tmux select-window -t $SESSION:1
+tmux split-window -h
+tmux split-window -v
+tmux resize-pane -D 20
+
+tmux select-pane -t 0
+tmux send-keys "clear ; bundle exec rails console" C-m
+tmux select-pane -t 1
+tmux send-keys "clear ; vim" C-m
+tmux select-pane -t 2
+tmux send-keys "clear ; bundle exec guard -c -g rspec" C-m
+
+tmux-new-simple-tab 2 "Web" "clear ; bundle exec rails server webrick -p 3000"
+tmux-new-simple-tab 3 "LiveReload" "clear ; bundle exec guard -c -g livereload"
+tmux-new-simple-tab 4 "Logs" "mkdir -p log ; touch log/development.log ; clear ; tail -f log/development.log"
+
+# Set the initial working window
+tmux select-window -t $SESSION:1
+
+# Attach to named session
+tmux -2 attach-session -t $SESSION
