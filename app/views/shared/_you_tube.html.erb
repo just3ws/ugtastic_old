@@ -1,5 +1,6 @@
 <%# https://developers.google.com/youtube/youtube_player_demo %>
 
+<!--
 <iframe
   id="ytplayer"
   type="text/html"
@@ -8,3 +9,11 @@
   src="https://www.youtube.com/embed/<%= you_tube.video_id %>?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&start=10&autohide=1&color=white&theme=light&origin=<%= ENV['YOUTUBE_EMBED_ORIGIN'] %>"
   frameborder="0"
   allowfullscreen></iframe>
+-->
+
+<%= image_tag(
+  you_tube.thumbnail.url,
+  size: "#{you_tube.thumbnail.width}x#{you_tube.thumbnail.height}",
+  alt: you_tube.title,
+  class: 'video_thumbnail'
+) %>

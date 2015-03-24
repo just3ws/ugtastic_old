@@ -9,12 +9,17 @@ module YouTube
     has_many :playlists, through: :playlist_videos, class_name: 'YouTube::Playlist'
 
     def thumbnail(size = 'default')
-      case size.to_s.downcase
+      @thumbnail ||= {}
+      size = size.to_s.downcase
+
+      case size
       when 'default', 'medium', 'high', 'standard'
-        OpenStruct.new(cache['snippet']['thumbnails'][size])
+        @thumbnail[size] ||= OpenStruct.new(cache['snippet']['thumbnails'][size])
       else
         fail "Unknown thumnail size \"#{size}\"."
       end
+
+      @thumbnail[size]
     end
   end
 end
