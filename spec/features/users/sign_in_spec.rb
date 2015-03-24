@@ -2,13 +2,13 @@
 #   As a user
 #   I want to sign in
 #   So I can visit protected areas of the site
-RSpec.feature 'Sign in', :omniauth do
+RSpec.feature 'Sign in', :omniauth, skip: true do
   # Scenario: User can sign in with valid account
   #   Given I have a valid account
   #   And I am not signed in
   #   When I sign in
   #   Then I see a success message
-  scenario 'user can sign in with valid account' do
+  scenario 'user can sign in with valid account', skip: true do
     signin
     expect(page).to have_content('Sign out')
   end
@@ -18,7 +18,7 @@ RSpec.feature 'Sign in', :omniauth do
   #   And I am not signed in
   #   When I sign in
   #   Then I see an authentication error message
-  scenario 'user cannot sign in with invalid account' do
+  scenario 'user cannot sign in with invalid account', skip: true do
     OmniAuth.config.mock_auth[:twitter] = :invalid_credentials
     visit root_path
     expect(page).to have_content('Sign in')
