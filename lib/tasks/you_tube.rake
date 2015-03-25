@@ -26,7 +26,7 @@ namespace :you_tube do
           data = client.execute!(
             api_method: yt.playlist_items.list,
             parameters: {
-              part: 'snippet',
+              part: 'id,snippet,contentDetails,status',
               maxResults: 50,
               playlistId: playlist.playlist_id,
               pageToken: next_page_token
@@ -37,6 +37,7 @@ namespace :you_tube do
           data.items.each_with_object(items) { |item| items << item }
 
           next_page_token = data.nextPageToken rescue break
+          sleep 1.second
         end
 
         items.each do |item|
@@ -80,7 +81,7 @@ namespace :you_tube do
           data = client.execute!(
             api_method: yt.playlists.list,
             parameters: {
-              part: 'snippet',
+              part: 'id,snippet,status,contentDetails',
               channelId: ENV['CHANNEL_ID'],
               pageToken: next_page_token,
               maxResults: 50
@@ -90,6 +91,7 @@ namespace :you_tube do
           data.items.each_with_object(items) { |item| items << item }
 
           next_page_token = data.nextPageToken rescue break
+          sleep 1.second
         end
 
         items.each do |item|
