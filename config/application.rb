@@ -18,12 +18,12 @@ module Ugtastic
   class Application < Rails::Application
     config.generators do |g|
       g.test_framework :rspec,
-        fixtures: true,
-        view_specs: false,
-        helper_specs: false,
-        routing_specs: false,
-        controller_specs: false,
-        request_specs: false
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: false,
+                       request_specs: false
       # g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
@@ -45,13 +45,12 @@ module Ugtastic
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-
     # rack-rewrite
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      #rewrite   '/wiki/John_Trupiano',  '/john'
-      #r301      '/wiki/Yair_Flicker',   '/yair'
-      #r302      '/wiki/Greg_Jastrab',   '/greg'
-      #r301      %r{/wiki/(\w+)_\w+},    '/$1'
+      # rewrite   '/wiki/John_Trupiano',  '/john'
+      # r301      '/wiki/Yair_Flicker',   '/yair'
+      # r302      '/wiki/Greg_Jastrab',   '/greg'
+      # r301      %r{/wiki/(\w+)_\w+},    '/$1'
     end
   end
 end
