@@ -8,6 +8,8 @@ module YouTube
     has_many :playlist_videos
     has_many :playlists, through: :playlist_videos, class_name: 'YouTube::Playlist'
 
+    has_many :transcripts
+
     def thumbnail(size = 'default')
       @thumbnail ||= {}
       size = size.to_s.downcase
