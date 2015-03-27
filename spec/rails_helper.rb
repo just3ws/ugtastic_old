@@ -29,7 +29,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.before(:all) do
     self.class.set_fixture_class(you_tube_playlists: YouTube::Playlist)
-    self.class.set_fixture_class(you_tube_videos: YouTube::Videos)
+    self.class.set_fixture_class(you_tube_videos: YouTube::Video)
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

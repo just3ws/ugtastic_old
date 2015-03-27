@@ -69,7 +69,7 @@ group :test do
   gem 'fuubar'
   gem 'launchy'
   gem 'poltergeist', require: false
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers'
   gem 'timecop'
 end
 
