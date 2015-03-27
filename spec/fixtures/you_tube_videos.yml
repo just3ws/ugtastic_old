@@ -1,0 +1,16 @@
+
+
+# == Schema Information
+#
+# Table name: you_tube_videos
+#
+#  id          :integer          not null, primary key
+#  video_id    :string           not null
+#  cache       :json
+#  etag        :string           not null
+#  title       :string           not null
+#  description :text
+#  state       :string           default("new")
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
