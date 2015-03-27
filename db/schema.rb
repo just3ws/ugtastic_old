@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20150327180523) do
     t.string   "locale"
     t.string   "video_id"
     t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "format",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

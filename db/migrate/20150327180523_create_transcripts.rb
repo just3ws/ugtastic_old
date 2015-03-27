@@ -4,6 +4,7 @@ class CreateTranscripts < ActiveRecord::Migration
       t.string :locale
       t.string :video_id
       t.text :text
+      t.integer :format, default: 0
 
       t.timestamps null: false
     end
