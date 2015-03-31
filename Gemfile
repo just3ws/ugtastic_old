@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'stamp'
 gem 'uglifier', '>= 1.3.0'
 gem 'paper_trail', '~> 4.0.0.beta'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development do
   gem 'annotate'
