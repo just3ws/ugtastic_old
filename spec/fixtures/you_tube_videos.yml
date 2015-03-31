@@ -13,4 +13,5 @@
 #  state       :string           default("new")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  slug        :string
 #
