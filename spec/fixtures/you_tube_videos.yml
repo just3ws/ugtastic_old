@@ -14,4 +14,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  slug        :string
+#  context     :string
+#  name        :string
+#  subtitle    :string
 #

@@ -16,7 +16,13 @@ module YouTube
 
     extend FriendlyId
     friendly_id :name, use: :slugged
-    alias_attribute :name, :title
+
+    def slug_candidates
+      [
+        %i(context name),
+        %i(context name subtitle)
+      ]
+    end
 
     def thumbnail(size = 'default')
       @thumbnail ||= {}
@@ -48,4 +54,7 @@ end
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  slug        :string
+#  context     :string
+#  name        :string
+#  subtitle    :string
 #
