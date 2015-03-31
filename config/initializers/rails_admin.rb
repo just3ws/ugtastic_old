@@ -1,6 +1,4 @@
 RailsAdmin.config do |config|
-  config.current_user_method(&:current_user) unless Rails.env.development?
-
   config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   config.actions do
