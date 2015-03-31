@@ -33,6 +33,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'stamp'
 gem 'uglifier', '>= 1.3.0'
+gem 'paper_trail', '~> 4.0.0.beta'
 
 group :development do
   gem 'annotate'

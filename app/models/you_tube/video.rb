@@ -1,5 +1,7 @@
 module YouTube
   class Video < ActiveRecord::Base
+    has_paper_trail
+
     validates :video_id, presence: true, uniqueness: true
     validates :etag, presence: true, uniqueness: true
 

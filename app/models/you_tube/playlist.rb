@@ -1,5 +1,7 @@
 module YouTube
   class Playlist < ActiveRecord::Base
+    has_paper_trail
+
     validates :playlist_id, presence: true, uniqueness: true
     validates :etag, presence: true, uniqueness: true
 
