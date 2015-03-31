@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331041851) do
+ActiveRecord::Schema.define(version: 20150331043930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,18 +112,20 @@ ActiveRecord::Schema.define(version: 20150331041851) do
   end
 
   create_table "you_tube_videos", force: :cascade do |t|
-    t.string   "video_id",                    null: false
+    t.string   "video_id",                     null: false
     t.json     "cache"
-    t.string   "etag",                        null: false
-    t.string   "title",                       null: false
+    t.string   "etag",                         null: false
+    t.string   "title",                        null: false
     t.text     "description"
-    t.string   "state",       default: "new"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "state",        default: "new"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "slug"
     t.string   "context"
     t.string   "name"
     t.string   "subtitle"
+    t.string   "interviewees",                              array: true
+    t.integer  "status",       default: 0,     null: false
   end
 
   add_index "you_tube_videos", ["slug"], name: "index_you_tube_videos_on_slug", unique: true, using: :btree

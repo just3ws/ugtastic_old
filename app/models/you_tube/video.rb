@@ -1,7 +1,12 @@
+# TODO: Status for display on the site. State for sync. Probably need a better name for these.
 module YouTube
   class Video < ActiveRecord::Base
+    enum status: %i(hide show)
+
     has_paper_trail
     acts_as_taggable
+
+    scope :published, -> { where(status: YouTube::Video.statuses[:show]) }
 
     validates :video_id, presence: true, uniqueness: true
     validates :etag, presence: true, uniqueness: true
