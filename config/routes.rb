@@ -34,5 +34,4 @@ end
 #              signin GET    /signin(.:format)                   sessions#new
 #             signout GET    /signout(.:format)                  sessions#destroy
 #        auth_failure GET    /auth/failure(.:format)             sessions#failure
-#                page GET    /pages/*id                          high_voltage/pages#show
 #
