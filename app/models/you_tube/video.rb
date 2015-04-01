@@ -17,6 +17,9 @@ module YouTube
     has_many :playlist_videos
     has_many :playlists, through: :playlist_videos, class_name: 'YouTube::Playlist'
 
+    has_many :video_interviewees
+    has_many :interviewees, through: :video_interviewees
+
     has_many :transcripts
 
     extend FriendlyId
