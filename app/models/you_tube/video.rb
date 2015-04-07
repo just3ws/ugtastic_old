@@ -8,7 +8,7 @@ module YouTube
 
     scope :published, -> { where(status: YouTube::Video.statuses[:show]) }
 
-    validates :video_id,
+    validates :remote_video_id,
               presence: true,
               uniqueness: true
 

@@ -2,7 +2,7 @@ module YouTube
   class Playlist < ActiveRecord::Base
     has_paper_trail
 
-    validates :playlist_id, presence: true, uniqueness: true
+    validates :remote_playlist_id, presence: true, uniqueness: true
     validates :etag, presence: true, uniqueness: true
 
     validates :title, presence: true, uniqueness: true, length: { in: 1..100 }, format: { without: /(<|>)/, message: "can't contain anglebrackets" }
