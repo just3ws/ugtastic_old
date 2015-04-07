@@ -12,7 +12,7 @@ module YouTube
     private
 
     def set_you_tube_video
-      @you_tube_video = YouTube::Video.find(params[:id])
+      @you_tube_video = YouTube::Video.find_by(id: params[:id])
     end
   end
 end

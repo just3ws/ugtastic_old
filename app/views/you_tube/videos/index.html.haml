@@ -1,21 +1,7 @@
 %ul(class="large-block-grid-3 medium-block-grid-2 small-block-grid-1")
   - @you_tube_videos.each do |you_tube|
     %li
-      %a(data-reveal-id="yt-modal-#{you_tube.video_id}")
+      = link_to you_tube_video_path(you_tube) do
         = image_tag(you_tube.thumbnail('medium').url, 'data-caption' => you_tube.title, size: "#{you_tube.thumbnail('medium').width}x#{you_tube.thumbnail('medium').height}", alt: you_tube.title, class: 'video_thumbnail')
-
-      %div(id="yt-modal-#{you_tube.video_id}" class="reveal-modal medium" data-reveal aria-labelledby="yt-modal-#{you_tube.video_id}" aria-hidden="true" role="dialog")
-        %h2(id="yt-modal-#{you_tube.video_id}-title")= you_tube.title
-        %a.close-reveal-modal(aria-label="Close") &#215;
-        .flex-video.widescreen
-          :erb
-            <iframe
-              id="ytplayer"
-              type="text/html"
-              width="640"
-              height="390"
-              src="https://www.youtube.com/embed/<%= you_tube.video_id %>?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&autohide=1&color=white&theme=light&origin=<%= ENV['YOUTUBE_EMBED_ORIGIN'] %>"
-              frameborder="0"
-              allowfullscreen></iframe>
 
 = paginate @you_tube_videos

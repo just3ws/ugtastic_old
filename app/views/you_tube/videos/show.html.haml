@@ -1,6 +1,23 @@
 %p#notice= notice
 
+.flex-video.widescreen
+  :erb
+    <iframe
+      id="ytplayer"
+      type="text/html"
+      width="640"
+      height="390"
+      src="https://www.youtube.com/embed/<%= @you_tube_video.remote_video_id %>?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&autohide=1&color=white&theme=light&origin=<%= ENV['YOUTUBE_EMBED_ORIGIN'] %>"
+      frameborder="0"
+      allowfullscreen></iframe>
 
-= link_to 'Edit', edit_you_tube_video_path(@you_tube_video)
-\|
+%h1= @you_tube_video.title
+%p= @you_tube_video.description
+
+- @you_tube_video.transcripts.each do |transcript|
+  %h2= "Transcript #{transcript.using_default_locale? ? '' : "(#{transcript.locale})" }"
+  %p= transcript.text
+
+
+
 = link_to 'Back', you_tube_videos_path
