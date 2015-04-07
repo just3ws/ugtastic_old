@@ -28,7 +28,7 @@ namespace :you_tube do
             parameters: {
               part: 'id,snippet,contentDetails,status',
               maxResults: 50,
-              playlistId: playlist.playlist_id,
+              playlistId: playlist.remote_playlist_id,
               pageToken: next_page_token
 
             }
@@ -44,8 +44,8 @@ namespace :you_tube do
           next if YouTube::Video.exists?(etag: item.etag)
 
           begin
-            video = YouTube::Video.find_or_create_by(video_id: item.snippet.resourceId.videoId) do |v|
-              v.video_id    = item.snippet.resourceId.videoId
+            video = YouTube::Video.find_or_create_by(remote_video_id: item.snippet.resourceId.videoId) do |v|
+              v.remote_video_id    = item.snippet.resourceId.videoId
               v.cache       = item.to_json
               v.etag        = item.etag
               v.title       = item.snippet.title
@@ -98,8 +98,8 @@ namespace :you_tube do
           next if YouTube::Playlist.exists?(etag: item.etag)
 
           begin
-            YouTube::Playlist.find_or_create_by(playlist_id: item.id) do |playlist|
-              playlist.playlist_id = item.id
+            YouTube::Playlist.find_or_create_by(remote_playlist_id: item.id) do |playlist|
+              playlist.remote_playlist_id = item.id
               playlist.cache       = item.to_json
               playlist.etag        = item.etag
               playlist.title       = item.snippet.title
