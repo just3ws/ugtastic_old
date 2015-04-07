@@ -9,33 +9,32 @@ module YouTube
     scope :published, -> { where(status: YouTube::Video.statuses[:show]) }
 
     validates :remote_video_id,
-              presence: true,
-              uniqueness: true
+      presence: true,
+      uniqueness: true
 
     validates :etag,
-              presence: true,
-              uniqueness: true
+      presence: true,
+      uniqueness: true
 
     validates :title,
-              presence: true,
-              uniqueness: true,
-              length: { in: 1..100 },
-              format: { without: /(<|>)/, message: "can't contain anglebrackets" }
+      presence: true,
+      length: { in: 1..100 },
+      format: { without: /(<|>)/, message: "can't contain anglebrackets" }
 
     validates :description,
-              presence: true,
-              length: { in: 0..5000 },
-              format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" },
-              allow_blank: true
+      presence: true,
+      length: { in: 0..5000 },
+      format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" },
+      allow_blank: true
 
     has_many :playlist_videos
     has_many :playlists,
-             through: :playlist_videos,
-             class_name: 'YouTube::Playlist'
+      through: :playlist_videos,
+      class_name: 'YouTube::Playlist'
 
     has_many :video_interviewees
     has_many :interviewees,
-             through: :video_interviewees
+      through: :video_interviewees
 
     has_many :transcripts
 
@@ -66,6 +65,34 @@ module YouTube
     rails_admin do
       configure :status do
         searchable false
+      end
+
+      list do
+        field :title
+        field :interviewees
+        field :context
+        field :status
+      end
+
+      edit do
+        field :title
+        field :context
+        field :subtitle
+
+        field :description
+
+        field :interviewees
+        field :transcripts
+
+        field :status
+
+        field :slug do
+          read_only true
+        end
+
+        field :remote_video_id do
+          read_only true
+        end
       end
     end
   end
