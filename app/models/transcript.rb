@@ -2,7 +2,9 @@ class Transcript < ActiveRecord::Base
   enum status: %i(transcription caption)
   DEFAULT_LOCALE ||= 'en'
 
-  belongs_to :video, class_name: 'YouTube::Video'
+  belongs_to :video,
+             class_name: 'YouTube::Video',
+             inverse_of: :transcripts
 
   after_initialize do
     self.locale = DEFAULT_LOCALE unless locale.present?

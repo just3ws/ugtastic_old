@@ -1,8 +1,8 @@
 class VideoInterviewee < ActiveRecord::Base
-  belongs_to :video, class_name: 'YouTube::Video'
+  belongs_to :video, class_name: 'YouTube::Video', inverse_of: :video_interviewees
   validates :video, presence: true
 
-  belongs_to :interviewee
+  belongs_to :interviewee, inverse_of: :video_interviewees
   validates :interviewee, presence: true
 end
 

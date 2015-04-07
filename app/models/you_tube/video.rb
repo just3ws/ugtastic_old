@@ -9,34 +9,36 @@ module YouTube
     scope :published, -> { where(status: YouTube::Video.statuses[:show]) }
 
     validates :remote_video_id,
-      presence: true,
-      uniqueness: true
+              presence: true,
+              uniqueness: true
 
     validates :etag,
-      presence: true,
-      uniqueness: true
+              presence: true,
+              uniqueness: true
 
     validates :title,
-      presence: true,
-      length: { in: 1..100 },
-      format: { without: /(<|>)/, message: "can't contain anglebrackets" }
+              presence: true,
+              length: { in: 1..100 },
+              format: { without: /(<|>)/, message: "can't contain anglebrackets" }
 
     validates :description,
-      presence: true,
-      length: { in: 0..5000 },
-      format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" },
-      allow_blank: true
+              presence: true,
+              length: { in: 0..5000 },
+              format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" },
+              allow_blank: true
 
     has_many :playlist_videos
     has_many :playlists,
-      through: :playlist_videos,
-      class_name: 'YouTube::Playlist'
+             through: :playlist_videos,
+             class_name: 'YouTube::Playlist',
+             inverse_of: :playlists
 
     has_many :video_interviewees
     has_many :interviewees,
-      through: :video_interviewees
+             through: :video_interviewees,
+             inverse_of: :videos
 
-    has_many :transcripts
+    has_many :transcripts, inverse_of: :video
 
     extend FriendlyId
     friendly_id :name, use: :slugged
@@ -79,7 +81,7 @@ module YouTube
         field :context
         field :subtitle
 
-        field :description
+        field :description, :text
 
         field :interviewees
         field :transcripts
