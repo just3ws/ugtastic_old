@@ -1,5 +1,3 @@
-%p#notice= notice
-
 .flex-video.widescreen
   :erb
     <iframe
@@ -17,7 +15,5 @@
 - @you_tube_video.transcripts.each do |transcript|
   %h2= "Transcript #{transcript.using_default_locale? ? '' : "(#{transcript.locale})" }"
   %p= transcript.text
-
-
 
 = link_to 'Back', you_tube_videos_path
