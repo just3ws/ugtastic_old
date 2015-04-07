@@ -70,6 +70,7 @@ module YouTube
       end
 
       list do
+        field :id
         field :title
         field :interviewees
         field :context
