@@ -33,3 +33,20 @@
 ].each do |name|
   Interviewee.find_or_create_by(name: name)
 end
+
+Interviewee.all.each do |interviewee|
+  YouTube::Video.where('slug ilike ?', "%#{interviewee.slug}%").first.interviewees << interviewee rescue nil
+end
+
+YouTube::Video.find_by(title: 'Charles Oliver Nutter').interviewees << Interviewee.find_by(name: 'Charles Nutter')
+YouTube::Video.find_by(title: 'Chris Whitaker').interviewees << Interviewee.find_by(name: 'Chris Whitaker')
+YouTube::Video.find_by(title: 'Daniel X Oneil').interviewees << Interviewee.find_by(name: 'Daniel X. O\'Neil')
+YouTube::Video.find_by(title: 'Interview with Evan Light founder DCamp at RailsConf 2014').interviewees << Interviewee.find_by(name: 'Evan Light')
+YouTube::Video.find_by(title: 'Jen Myers').interviewees << Interviewee.find_by(name: 'Jen Myers')
+YouTube::Video.find_by(title: 'Justin Searls').interviewees << Interviewee.find_by(name: 'Justin Searls')
+YouTube::Video.find_by(title: 'Ray Hightower').interviewees << Interviewee.find_by(name: 'Ray Hightower')
+YouTube::Video.find_by(title: 'Robreynolds').interviewees << Interviewee.find_by(name: 'Rob Reynolds')
+YouTube::Video.find_by(title: 'Yehuda Katz & Tom Dale: The Lost Interview').interviewees << Interviewee.find_by(name: 'Yehuda Katz')
+YouTube::Video.find_by(title: 'Yehuda Katz & Tom Dale: The Lost Interview').interviewees << Interviewee.find_by(name: 'Tom Dale')
+YouTube::Video.find_by(title: '[REPLACED] Liz Abinante co-leader Girl Develop It Chicago').interviewees << Interviewee.find_by(name: 'Liz Abinante')
+YouTube::Video.find_by(title: '[ROUGH CUT] Interview with Charles Nutter aka the JRuby Guy').interviewees << Interviewee.find_by(name: 'Charles Nutter')

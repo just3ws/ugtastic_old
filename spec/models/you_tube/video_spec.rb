@@ -4,9 +4,7 @@ RSpec.describe YouTube::Video, type: :model do
     it { should have_many :transcripts }
 
     context 'description' do
-      it { should validate_length_of(:description).is_at_least(1) }
       it { should validate_length_of(:description).is_at_most(5000) }
-      it { should validate_presence_of :description }
       it { should_not allow_value("<angle\nbrackets>").for(:description) }
     end
 
@@ -29,7 +27,7 @@ RSpec.describe YouTube::Video, type: :model do
     end
   end
 
-  context '#thumnail' do
+  context '#thumbnail' do
     subject { YouTube::Video.new(cache: { 'snippet' => { 'thumbnails' => { 'default' => {}, 'medium' => {}, 'high' => {}, 'standard' => {} } } })   }
     it 'returns a default thumbnail' do
       expect(subject.thumbnail).to be_an OpenStruct
