@@ -29,7 +29,7 @@
   'Sarah Gray', 'Scott Seely', 'Sean Massa', 'Sergio Pereira', 'Shay Howe', 'Sina Khanifar',
   'Stephen Anderson', 'Steve Kim', 'Steve Klabnik', 'Stuart Halloway', 'Tim Bray', 'Tim Murphy',
   'Tim Ottinger', 'Todd Larsen', 'Tom Brand', 'Tom Dale', 'Trek Glowacki', 'Trisha Gee',
-  'Yehuda Katz', 'Zach Dennis', 'Zach Shaw', 'Zachary Shaw', 'Zassmin Montes de Oca'
+  'Yehuda Katz', 'Zach Dennis', 'Zachary Shaw', 'Zassmin Montes de Oca'
 ].each do |name|
   Interviewee.find_or_create_by(name: name)
 end

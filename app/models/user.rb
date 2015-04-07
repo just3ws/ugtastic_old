@@ -17,6 +17,12 @@ class User < ActiveRecord::Base
       user.name = auth['info']['name'] || '' if auth['info']
     end
   end
+
+  rails_admin do
+    configure :role do
+      searchable false
+    end
+  end
 end
 
 # == Schema Information

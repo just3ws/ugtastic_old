@@ -5,11 +5,11 @@ class Transcript < ActiveRecord::Base
   belongs_to :video, class_name: 'YouTube::Video'
 
   after_initialize do
-    self.locale = DEFAULT_LOCALE unless self.locale.present?
+    self.locale = DEFAULT_LOCALE unless locale.present?
   end
 
   def using_default_locale?
-    self.locale == DEFAULT_LOCALE
+    locale == DEFAULT_LOCALE
   end
 
   def supported_locales
@@ -79,6 +79,12 @@ class Transcript < ActiveRecord::Base
       'vi' => 'Vietnamese',
       'yi' => 'Yiddish'
     }
+  end
+
+  rails_admin do
+    configure :status do
+      searchable false
+    end
   end
 end
 
