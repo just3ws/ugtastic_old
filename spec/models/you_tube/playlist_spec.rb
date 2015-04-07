@@ -17,14 +17,14 @@ RSpec.describe YouTube::Playlist, type: :model do
     end
 
     it { should validate_presence_of :etag }
-    it { should validate_presence_of :playlist_id }
+    it { should validate_presence_of :remote_playlist_id }
 
     context 'uniqueness' do
-      subject { YouTube::Playlist.new(playlist_id: 'xxx', etag: 'xxx', title: 'xxx', description: 'xxx') }
+      subject { YouTube::Playlist.new(remote_playlist_id: 'xxx', etag: 'xxx', title: 'xxx', description: 'xxx') }
 
       it { should validate_uniqueness_of :etag }
       it { should validate_uniqueness_of :title }
-      it { should validate_uniqueness_of :playlist_id }
+      it { should validate_uniqueness_of :remote_playlist_id }
     end
   end
 end

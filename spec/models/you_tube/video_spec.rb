@@ -16,14 +16,14 @@ RSpec.describe YouTube::Video, type: :model do
     end
 
     it { should validate_presence_of :etag }
-    it { should validate_presence_of :video_id }
+    it { should validate_presence_of :remote_video_id }
 
     context 'uniqueness' do
-      subject { YouTube::Video.new(video_id: 'xxx', etag: 'xxx', title: 'xxx', description: 'xxx') }
+      subject { YouTube::Video.new(remote_video_id: 'xxx', etag: 'xxx', title: 'xxx', description: 'xxx') }
 
       it { should validate_uniqueness_of :etag }
       it { should validate_uniqueness_of :title }
-      it { should validate_uniqueness_of :video_id }
+      it { should validate_uniqueness_of :remote_video_id }
     end
   end
 

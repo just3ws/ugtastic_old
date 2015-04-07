@@ -35,7 +35,6 @@ module YouTube
 
     has_many :video_interviewees
     has_many :interviewees,
-             -> { uniq },
              through: :video_interviewees
 
     has_many :transcripts

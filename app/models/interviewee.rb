@@ -4,10 +4,15 @@ class Interviewee < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  validates :name, presence: true, uniqueness: true, allow_blank: false
+  validates :name,
+            presence: true,
+            uniqueness: true,
+            allow_blank: false
 
   has_many :video_interviewees
-  has_many :videos, -> { uniq }, through: :video_interviewees, class_name: 'YouTube::Video'
+  has_many :videos,
+           through: :video_interviewees,
+           class_name: 'YouTube::Video'
 end
 
 # == Schema Information
