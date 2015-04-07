@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401031759) do
+ActiveRecord::Schema.define(version: 20150407032452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150401031759) do
 
   create_table "transcripts", force: :cascade do |t|
     t.string   "locale"
-    t.string   "video_id"
+    t.integer  "video_id"
     t.text     "text"
     t.integer  "format",     default: 0
     t.datetime "created_at",             null: false
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20150401031759) do
   add_index "versions", ["transaction_id"], name: "index_versions_on_transaction_id", using: :btree
 
   create_table "video_interviewees", force: :cascade do |t|
-    t.string   "video_id"
+    t.integer  "video_id"
     t.integer  "interviewee_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -117,31 +117,31 @@ ActiveRecord::Schema.define(version: 20150401031759) do
   add_index "you_tube_playlist_videos", ["video_id"], name: "index_you_tube_playlist_videos_on_video_id", using: :btree
 
   create_table "you_tube_playlists", force: :cascade do |t|
-    t.string   "playlist_id",                 null: false
+    t.string   "remote_playlist_id",                 null: false
     t.json     "cache"
-    t.string   "etag",                        null: false
-    t.string   "title",                       null: false
+    t.string   "etag",                               null: false
+    t.string   "title",                              null: false
     t.text     "description"
-    t.string   "state",       default: "new"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "state",              default: "new"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "you_tube_videos", force: :cascade do |t|
-    t.string   "video_id",                     null: false
+    t.string   "remote_video_id",                 null: false
     t.json     "cache"
-    t.string   "etag",                         null: false
-    t.string   "title",                        null: false
+    t.string   "etag",                            null: false
+    t.string   "title",                           null: false
     t.text     "description"
-    t.string   "state",        default: "new"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "state",           default: "new"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "slug"
     t.string   "context"
     t.string   "name"
     t.string   "subtitle"
-    t.string   "interviewees",                              array: true
-    t.integer  "status",       default: 0,     null: false
+    t.string   "interviewees",                                 array: true
+    t.integer  "status",          default: 0,     null: false
   end
 
   add_index "you_tube_videos", ["slug"], name: "index_you_tube_videos_on_slug", unique: true, using: :btree

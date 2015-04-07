@@ -10,7 +10,7 @@ end
 #
 #  id         :integer          not null, primary key
 #  locale     :string
-#  video_id   :string
+#  video_id   :integer
 #  text       :text
 #  format     :integer          default(0)
 #  created_at :datetime         not null

@@ -11,7 +11,7 @@ end
 # Table name: video_interviewees
 #
 #  id             :integer          not null, primary key
-#  video_id       :string
+#  video_id       :integer
 #  interviewee_id :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null

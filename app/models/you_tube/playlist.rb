@@ -17,13 +17,13 @@ end
 #
 # Table name: you_tube_playlists
 #
-#  id          :integer          not null, primary key
-#  playlist_id :string           not null
-#  cache       :json
-#  etag        :string           not null
-#  title       :string           not null
-#  description :text
-#  state       :string           default("new")
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                 :integer          not null, primary key
+#  remote_playlist_id :string           not null
+#  cache              :json
+#  etag               :string           not null
+#  title              :string           not null
+#  description        :text
+#  state              :string           default("new")
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
