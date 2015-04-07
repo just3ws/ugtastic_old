@@ -50,6 +50,7 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'quiet_assets'
   gem 'rack-livereload'
+  gem 'rails-erd'
   gem 'rails_layout'
   gem 'rb-fchange', require: false
   gem 'rb-fsevent', require: false
