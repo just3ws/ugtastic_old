@@ -13,7 +13,7 @@ module YouTube
     validates :description, presence: true, length: { in: 1..5000 }, format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" }
 
     has_many :playlist_videos
-    has_many :videos, through: :playlist_videos, class_name: 'YouTube::Video'
+    has_many :videos, through: :playlist_videos, class_name: 'YouTube::Video', inverse_of: :playlists
   end
 end
 

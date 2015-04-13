@@ -13,9 +13,7 @@ module YouTube
 
     scope :published, -> { where(status: YouTube::Video.statuses[:show]) }
 
-    validates :remote_video_id,
-      presence: true,
-      uniqueness: true
+    validates :remote_video_id, presence: true, uniqueness: true
 
     validates :etag,
       presence: true,
@@ -36,7 +34,7 @@ module YouTube
     has_many :playlists,
       through: :playlist_videos,
       class_name: 'YouTube::Playlist',
-      inverse_of: :playlists
+      inverse_of: :videos
 
     has_many :video_interviewees
     has_many :interviewees,
