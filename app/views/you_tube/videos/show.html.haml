@@ -9,6 +9,9 @@
       frameborder="0"
       allowfullscreen></iframe>
 
+- if Rails.env.development?
+  = link_to rails_admin.edit_url(model_name: 'you_tube~video', id: @you_tube_video.id)
+
 %h1= @you_tube_video.title
 - if @you_tube_video.description.present?
   %p= raw(MARKDOWN.render(@you_tube_video.description))
