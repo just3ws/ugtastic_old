@@ -4,15 +4,19 @@ class Interviewee < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  include PgSearch
+  multisearchable against: %i(name),
+    using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)
+
   validates :name,
-            presence: true,
-            uniqueness: true,
-            allow_blank: false
+    presence: true,
+    uniqueness: true,
+    allow_blank: false
 
   has_many :video_interviewees
   has_many :videos,
-           through: :video_interviewees,
-           class_name: 'YouTube::Video'
+    through: :video_interviewees,
+    class_name: 'YouTube::Video'
 end
 
 # == Schema Information
