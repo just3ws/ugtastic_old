@@ -1,13 +1,13 @@
 class Transcript < ActiveRecord::Base
-  enum status: %i(transcription caption)
+  enum format: %i(transcription caption)
   DEFAULT_LOCALE ||= 'en'
 
   include PgSearch
   multisearchable against: %i(text), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)
 
   belongs_to :video,
-             class_name: 'YouTube::Video',
-             inverse_of: :transcripts
+    class_name: 'YouTube::Video',
+    inverse_of: :transcripts
 
   after_initialize do
     self.locale = DEFAULT_LOCALE unless locale.present?
@@ -87,7 +87,7 @@ class Transcript < ActiveRecord::Base
   end
 
   rails_admin do
-    configure :status do
+    configure :format do
       searchable false
     end
   end
