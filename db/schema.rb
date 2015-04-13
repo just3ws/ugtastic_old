@@ -11,12 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413011918) do
+ActiveRecord::Schema.define(version: 20150413035850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "fuzzystrmatch"
   enable_extension "pg_trgm"
+
+  create_table "conferences", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.string   "country"
+    t.float    "latitude"
+    t.string   "homepage"
+    t.string   "longitude"
+    t.string   "city"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

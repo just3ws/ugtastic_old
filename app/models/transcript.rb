@@ -6,8 +6,8 @@ class Transcript < ActiveRecord::Base
   multisearchable against: %i(text), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)
 
   belongs_to :video,
-    class_name: 'YouTube::Video',
-    inverse_of: :transcripts
+             class_name: 'YouTube::Video',
+             inverse_of: :transcripts
 
   after_initialize do
     self.locale = DEFAULT_LOCALE unless locale.present?
