@@ -11,6 +11,13 @@
     = csrf_meta_tags
   %body
     %header= render 'layouts/navigation'
-    %section{role: 'main'}
+    %section(role="main")
+      :erb
+        <div id="helpAlert" data-alert class="alert-box secondary" tabindex="0" aria-live="assertive" role="dialogalert">
+          We're remodeling!
+          <br>
+          More info <a href="https://github.com/ugtastic/ugtastic/blob/master/CONTRIBUTING.md" class="text-color: white;">at our GitHub repo</a>
+          <button href="#" tabindex="0" class="close" aria-label="Close Alert">&times;</button>
+        </div>
       = render 'layouts/messages'
       = yield
