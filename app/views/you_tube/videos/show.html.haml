@@ -11,7 +11,7 @@
 
 %h1= @you_tube_video.title
 - if @you_tube_video.description.present?
-  %p= MARKDOWN.render(@you_tube_video.description)
+  %p= raw(MARKDOWN.render(@you_tube_video.description))
 
 - @you_tube_video.transcripts.each do |transcript|
   %h2= "Transcript #{transcript.using_default_locale? ? '' : "(#{transcript.locale})" }"
