@@ -10,7 +10,8 @@
       allowfullscreen></iframe>
 
 %h1= @you_tube_video.title
-%p= @you_tube_video.description
+- if @you_tube_video.description.present?
+  %p= MARKDOWN.render(@you_tube_video.description)
 
 - @you_tube_video.transcripts.each do |transcript|
   %h2= "Transcript #{transcript.using_default_locale? ? '' : "(#{transcript.locale})" }"
