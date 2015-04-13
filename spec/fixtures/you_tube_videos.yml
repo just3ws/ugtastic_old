@@ -17,6 +17,5 @@
 #  context         :string
 #  name            :string
 #  subtitle        :string
-#  interviewees    :string           is an Array
 #  status          :integer          default(0), not null
 #

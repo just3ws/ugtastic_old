@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413005522) do
+ActiveRecord::Schema.define(version: 20150413011918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_trgm"
   enable_extension "fuzzystrmatch"
+  enable_extension "pg_trgm"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -150,7 +150,6 @@ ActiveRecord::Schema.define(version: 20150413005522) do
     t.string   "context"
     t.string   "name"
     t.string   "subtitle"
-    t.string   "interviewees",                                 array: true
     t.integer  "status",          default: 0,     null: false
   end
 
