@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413035850) do
+ActiveRecord::Schema.define(version: 20150413042554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20150413035850) do
     t.string   "name"
     t.integer  "year"
     t.string   "country"
-    t.float    "latitude"
     t.string   "homepage"
-    t.string   "longitude"
     t.string   "city"
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20150413035850) do
     t.string   "name"
     t.string   "subtitle"
     t.integer  "status",          default: 0,     null: false
+    t.integer  "conference_id"
   end
 
   add_index "you_tube_videos", ["slug"], name: "index_you_tube_videos_on_slug", unique: true, using: :btree

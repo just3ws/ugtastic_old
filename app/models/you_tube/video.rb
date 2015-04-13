@@ -9,6 +9,8 @@ module YouTube
     include PgSearch
     multisearchable against: %i(context description name remote_video_id subtitle title), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents), if: :published?
 
+    belongs_to :conference, inverse_of: :interviews
+
     scope :published, -> { where(status: YouTube::Video.statuses[:show]) }
 
     validates :remote_video_id,
@@ -128,4 +130,5 @@ end
 #  name            :string
 #  subtitle        :string
 #  status          :integer          default(0), not null
+#  conference_id   :integer
 #
