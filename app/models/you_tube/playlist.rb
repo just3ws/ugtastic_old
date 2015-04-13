@@ -2,6 +2,10 @@ module YouTube
   class Playlist < ActiveRecord::Base
     has_paper_trail
 
+    include PgSearch
+    multisearchable against: %i(title description remote_playlist_id),
+                    using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)
+
     validates :remote_playlist_id, presence: true, uniqueness: true
     validates :etag, presence: true, uniqueness: true
 

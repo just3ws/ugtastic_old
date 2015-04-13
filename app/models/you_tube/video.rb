@@ -6,42 +6,49 @@ module YouTube
     has_paper_trail
     acts_as_taggable
 
+    include PgSearch
+    multisearchable against: %i(context description name remote_video_id subtitle title), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents), if: :published?
+
     scope :published, -> { where(status: YouTube::Video.statuses[:show]) }
 
     validates :remote_video_id,
-      presence: true,
-      uniqueness: true
+              presence: true,
+              uniqueness: true
 
     validates :etag,
-      presence: true,
-      uniqueness: true
+              presence: true,
+              uniqueness: true
 
     validates :title,
-      presence: true,
-      length: { in: 1..100 },
-      format: { without: /(<|>)/, message: "can't contain anglebrackets" }
+              presence: true,
+              length: { in: 1..100 },
+              format: { without: /(<|>)/, message: "can't contain anglebrackets" }
 
     validates :description,
-      presence: true,
-      length: { in: 0..5000 },
-      format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" },
-      allow_blank: true
+              presence: true,
+              length: { in: 0..5000 },
+              format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" },
+              allow_blank: true
 
     has_many :playlist_videos
     has_many :playlists,
-      through: :playlist_videos,
-      class_name: 'YouTube::Playlist',
-      inverse_of: :playlists
+             through: :playlist_videos,
+             class_name: 'YouTube::Playlist',
+             inverse_of: :playlists
 
     has_many :video_interviewees
     has_many :interviewees,
-      through: :video_interviewees,
-      inverse_of: :videos
+             through: :video_interviewees,
+             inverse_of: :videos
 
     has_many :transcripts, inverse_of: :video
 
     extend FriendlyId
     friendly_id :name, use: :slugged
+
+    def published?
+      self.class.statuses[status] == self.class.statuses[:show]
+    end
 
     def slug_candidates
       [
@@ -120,6 +127,5 @@ end
 #  context         :string
 #  name            :string
 #  subtitle        :string
-#  interviewees    :string           is an Array
 #  status          :integer          default(0), not null
 #

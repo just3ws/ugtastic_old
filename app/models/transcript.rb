@@ -2,6 +2,9 @@ class Transcript < ActiveRecord::Base
   enum status: %i(transcription caption)
   DEFAULT_LOCALE ||= 'en'
 
+  include PgSearch
+  multisearchable against: %i(text), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)
+
   belongs_to :video,
              class_name: 'YouTube::Video',
              inverse_of: :transcripts
