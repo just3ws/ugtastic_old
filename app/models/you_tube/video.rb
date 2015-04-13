@@ -14,34 +14,34 @@ module YouTube
     scope :published, -> { where(status: YouTube::Video.statuses[:show]) }
 
     validates :remote_video_id,
-              presence: true,
-              uniqueness: true
+      presence: true,
+      uniqueness: true
 
     validates :etag,
-              presence: true,
-              uniqueness: true
+      presence: true,
+      uniqueness: true
 
     validates :title,
-              presence: true,
-              length: { in: 1..100 },
-              format: { without: /(<|>)/, message: "can't contain anglebrackets" }
+      presence: true,
+      length: { in: 1..100 },
+      format: { without: /(<|>)/, message: "can't contain anglebrackets" }
 
     validates :description,
-              presence: true,
-              length: { in: 0..5000 },
-              format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" },
-              allow_blank: true
+      presence: true,
+      length: { in: 0..5000 },
+      format: { without: /(<|>)/, multiline: true, message: "can't contain anglebrackets" },
+      allow_blank: true
 
     has_many :playlist_videos
     has_many :playlists,
-             through: :playlist_videos,
-             class_name: 'YouTube::Playlist',
-             inverse_of: :playlists
+      through: :playlist_videos,
+      class_name: 'YouTube::Playlist',
+      inverse_of: :playlists
 
     has_many :video_interviewees
     has_many :interviewees,
-             through: :video_interviewees,
-             inverse_of: :videos
+      through: :video_interviewees,
+      inverse_of: :videos
 
     has_many :transcripts, inverse_of: :video
 
@@ -96,6 +96,7 @@ module YouTube
         field :description, :text
 
         field :interviewees
+        field :conference
         field :transcripts
 
         field :status
@@ -106,6 +107,18 @@ module YouTube
 
         field :remote_video_id do
           read_only true
+          pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+            <<-EOS
+<iframe
+  id="ytplayer"
+  type="text/html"
+  width="640"
+  height="390"
+  src="https://www.youtube.com/embed/#{value}?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&start=10&autohide=1&color=white&theme=light"
+  frameborder="0"
+  allowfullscreen></iframe>
+            EOS
+          end
         end
       end
     end
