@@ -9,6 +9,7 @@ gem 'awesome_print'
 gem 'cloudinary'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'dalli'
+gem 'devise'
 gem 'dotenv-rails'
 gem 'foreman', require: false
 gem 'foundation-icons-sass-rails'
