@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413042554) do
+ActiveRecord::Schema.define(version: 20150414230010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "fuzzystrmatch"
   enable_extension "pg_trgm"
+  enable_extension "uuid-ossp"
 
   create_table "conferences", force: :cascade do |t|
     t.string   "name"
@@ -52,6 +53,23 @@ ActiveRecord::Schema.define(version: 20150413042554) do
   end
 
   add_index "interviewees", ["slug"], name: "index_interviewees_on_slug", unique: true, using: :btree
+
+  create_table "metrics", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "session_id"
+    t.string   "request_action"
+    t.string   "request_controller"
+    t.string   "request_ip"
+    t.string   "request_method"
+    t.string   "request_referrer"
+    t.string   "request_requestor_ip"
+    t.string   "request_url"
+    t.string   "request_user_agent"
+    t.string   "request_xff"
+    t.uuid     "user_id"
+    t.jsonb    "request_params"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
