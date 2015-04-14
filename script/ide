@@ -20,10 +20,6 @@ cd $HOME/ugtastic/ugtastic
 
 rvm current
 
-if [[ $USE_VAGRANT -eq 1 ]]; then
-  vagrant up
-fi
-
 # Session Exists?
 
 tmux has-session -t $SESSION
