@@ -1,4 +1,11 @@
 class Metric < ActiveRecord::Base
+  rails_admin do
+    list do
+      field :request_url
+      field :request_user_agent
+      field :created_at
+    end
+  end
 end
 
 # == Schema Information
