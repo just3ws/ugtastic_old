@@ -112,7 +112,6 @@ module YouTube
         field :id
         field :title
         field :interviewees
-        field :context
         field :status
       end
 

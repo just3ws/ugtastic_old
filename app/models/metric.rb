@@ -1,7 +1,11 @@
 class Metric < ActiveRecord::Base
   rails_admin do
     list do
-      field :request_url
+      field :request_url do
+        pretty_value do
+          URI.parse(value).path
+        end
+      end
       field :request_user_agent
       field :created_at
     end
