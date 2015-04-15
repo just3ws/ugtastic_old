@@ -4,6 +4,6 @@ class InterviewsController < ApplicationController
   end
 
   def show
-    @you_tube_video = YouTube::Video.find_by(id: params[:id])
+    @you_tube_video = YouTube::Video.friendly.find(params[:id])
   end
 end
