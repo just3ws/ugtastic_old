@@ -15,10 +15,11 @@ end
 #  id         :integer          not null, primary key
 #  name       :string
 #  year       :integer
-#  country    :string
 #  homepage   :string
+#  venue      :string
 #  city       :string
-#  address    :string
+#  country    :string
+#  address    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  latitude   :float

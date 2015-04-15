@@ -1,7 +1,7 @@
 %ul(class="large-block-grid-3 medium-block-grid-2 small-block-grid-1")
   - @you_tube_videos.each do |you_tube|
     %li
-      = link_to you_tube_video_path(you_tube) do
+      = link_to interview_path(you_tube) do
         = image_tag(you_tube.thumbnail('medium').url, 'data-caption' => you_tube.title, size: "#{you_tube.thumbnail('medium').width}x#{you_tube.thumbnail('medium').height}", alt: you_tube.title, class: 'video_thumbnail')
 
 = paginate @you_tube_videos

@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 20150414230010) do
   create_table "conferences", force: :cascade do |t|
     t.string   "name"
     t.integer  "year"
-    t.string   "country"
     t.string   "homepage"
+    t.string   "venue"
     t.string   "city"
-    t.string   "address"
+    t.string   "country"
+    t.text     "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float    "latitude"
