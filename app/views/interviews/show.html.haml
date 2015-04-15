@@ -18,6 +18,6 @@
 
 - @you_tube_video.transcripts.each do |transcript|
   %h2= "Transcript #{transcript.using_default_locale? ? '' : "(#{transcript.locale})" }"
-  %p= transcript.text
+  %p= raw(MARKDOWN.render(transcript.text))
 
 = link_to 'Back', interviews_path
