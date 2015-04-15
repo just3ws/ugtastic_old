@@ -44,19 +44,48 @@ module YouTube
     has_many :transcripts, inverse_of: :video
 
     extend FriendlyId
-    friendly_id :title, use: :slugged
+    friendly_id :slug_candidates, use: :slugged
 
     def published?
       self.class.statuses[status] == self.class.statuses[:show]
     end
 
-    #def slug_candidates
-      #[
-        #%i(title),
-        #%i(context name),
-        #%i(context name subtitle)
-      #]
-    #end
+    def slug_candidates
+      if at_conference?
+        [
+          %i(conference_name conference_year interviewee_names),
+          %i(conference_name conference_year interviewee_names subtitle)
+        ]
+      else
+        [
+          :interviewee_names,
+          %i(interviewee_names subtitle),
+          [:interviewee_names, :subtitle, 1],
+          [:interviewee_names, :subtitle, 2],
+          [:interviewee_names, :subtitle, 3],
+          [:interviewee_names, :subtitle, 4],
+        ]
+      end
+    end
+
+    def name
+      # HACK: to shut friendly_id up when it tries to access the name.
+      nil
+    end
+
+    def at_conference?
+      return false if conference_name.nil?
+      return false if conference_name == 'Null'
+      true
+    end
+
+    delegate :year, to: :conference, prefix: true, allow_nil: true
+
+    delegate :name, to: :conference, prefix: true, allow_nil: true
+
+    def interviewee_names
+      interviewees.pluck(:name).to_sentence
+    end
 
     def thumbnail(size = 'default')
       @thumbnail ||= {}
@@ -139,7 +168,6 @@ end
 #  updated_at      :datetime         not null
 #  slug            :string
 #  context         :string
-#  name            :string
 #  subtitle        :string
 #  status          :integer          default(0), not null
 #  conference_id   :integer
