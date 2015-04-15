@@ -44,18 +44,19 @@ module YouTube
     has_many :transcripts, inverse_of: :video
 
     extend FriendlyId
-    friendly_id :name, use: :slugged
+    friendly_id :title, use: :slugged
 
     def published?
       self.class.statuses[status] == self.class.statuses[:show]
     end
 
-    def slug_candidates
-      [
-        %i(context name),
-        %i(context name subtitle)
-      ]
-    end
+    #def slug_candidates
+      #[
+        #%i(title),
+        #%i(context name),
+        #%i(context name subtitle)
+      #]
+    #end
 
     def thumbnail(size = 'default')
       @thumbnail ||= {}
