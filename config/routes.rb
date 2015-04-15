@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new', as: :signin
   get '/signout' => 'sessions#destroy', as: :signout
   get '/auth/failure' => 'sessions#failure'
+
+  get '*unmatched_route', to: 'application#not_found'
 end
 
 # == Route Map
@@ -28,6 +30,7 @@ end
 #       signin GET    /signin(.:format)                  sessions#new
 #      signout GET    /signout(.:format)                 sessions#destroy
 # auth_failure GET    /auth/failure(.:format)            sessions#failure
+#              GET    /*unmatched_route(.:format)        application#not_found
 #
 # Routes for RailsAdmin::Engine:
 #     dashboard GET         /                                      rails_admin/main#dashboard

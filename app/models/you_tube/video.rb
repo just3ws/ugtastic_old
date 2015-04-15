@@ -63,7 +63,7 @@ module YouTube
           [:interviewee_names, :subtitle, 1],
           [:interviewee_names, :subtitle, 2],
           [:interviewee_names, :subtitle, 3],
-          [:interviewee_names, :subtitle, 4],
+          [:interviewee_names, :subtitle, 4]
         ]
       end
     end

@@ -11,6 +11,14 @@ class ApplicationController < ActionController::Base
 
   before_action :log_metrics
 
+  rescue_from ActionController::RoutingError, with: :render_404
+
+  def not_found(exception = nil)
+    logger.info "Rendering 404: #{exception.message}" if exception
+
+    render file: "#{Rails.root}/public/404.html", status: 404, layout: false
+  end
+
   private
 
   def log_metrics

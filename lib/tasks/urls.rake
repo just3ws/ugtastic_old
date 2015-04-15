@@ -1,7 +1,7 @@
 require 'dotenv/tasks'
 
 namespace :urls do
-  desc "Reload all the friendly url slugs"
+  desc 'Reload all the friendly url slugs'
   task refresh: %i(dotenv environment) do
     YouTube::Video.update_all(slug: nil)
     YouTube::Video.published.each do |v|
