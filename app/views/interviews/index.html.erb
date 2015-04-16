@@ -1,20 +1,37 @@
-<% @you_tube_videos.each do |you_tube| %>
-  <div class='box photo col2'>
-    <%= link_to interview_path(you_tube) do %>
-      <%= image_tag(you_tube.thumbnail('medium').url, 'data-caption' => you_tube.title, size: "#{you_tube.thumbnail('medium').width}x#{you_tube.thumbnail('medium').height}", alt: you_tube.title, class: 'video_thumbnail') %>
+<div class="twelve columns">
+  <div id="container">
+    <% @you_tube_videos.each do |you_tube| %>
+      <div class='box photo col2'>
+        <%= link_to interview_path(you_tube) do %>
+          <%= image_tag(you_tube.thumbnail('medium').url, 'data-caption' => you_tube.title, size: "#{you_tube.thumbnail('medium').width}x#{you_tube.thumbnail('medium').height}", alt: you_tube.title, class: 'video_thumbnail') %>
+        <% end %>
+        <h4><strong><%= you_tube.interviewee_names %></strong></h4>
+        <% if you_tube.subtitle.present? %>
+          <h5><%= you_tube.subtitle %></h5>
+        <% end %>
+        <p><%= truncate(you_tube.description, length: 100, omission: '…') %></p>
+        <% if you_tube.at_conference? %>
+          <div class="box_comment conference"><p><%= link_to "#{you_tube.conference_name} #{you_tube.conference.city} #{you_tube.conference_year}", you_tube.conference %></p></div>
+        <% end %>
+        <!--
+        <div class="box_comment"><p>Amazing Picture!</p></div>
+        <div class="box_comment"><p>Love this!</p></div>
+        <div class="box_comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p></div>
+        -->
+      </div>
     <% end %>
-    <h4><strong><%= you_tube.interviewee_names %></strong></h4>
-    <% if you_tube.subtitle.present? %>
-      <h5><%= you_tube.subtitle %></h5>
-    <% end %>
-    <p><%= truncate(you_tube.description, length: 100, omission: '…') %></p>
-    <% if you_tube.at_conference? %>
-      <div class="box_comment conference"><p><%= link_to "#{you_tube.conference_name} #{you_tube.conference.city} #{you_tube.conference_year}", you_tube.conference %></p></div>
-    <% end %>
-    <!--
-    <div class="box_comment"><p>Amazing Picture!</p></div>
-    <div class="box_comment"><p>Love this!</p></div>
-    <div class="box_comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p></div>
-    -->
   </div>
-<% end %>
+  <%= render 'layouts/footer' %>
+</div>
+
+<script src="javascripts/foundation.min.js" type="text/javascript"></script>
+
+<script src="javascripts/app.js" type="text/javascript"></script>
+<script src="javascripts/masonry.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function(){
+    var $container = $('#container');
+    $container.imagesLoaded(function() { $container.masonry({itemSelector : '.box', isFitWidth: true, isAnimated: true}); });
+  });
+</script>
