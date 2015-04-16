@@ -34,7 +34,13 @@
     </div>
 
     <% if @you_tube_video.subtitle.present? %>
-      <h4><%= @you_tube_video.subtitle %></h4>
+      <h4>
+        <%= @you_tube_video.subtitle %>
+        <% if @you_tube_video.at_conference? %>
+          <strong>@</strong>
+          <%= @you_tube_video.conference_name %> <%= @you_tube_video.conference.city %> <%= @you_tube_video.conference_year %>
+        <% end %>
+      </h4>
     <% end %>
 
     <div class="row">
