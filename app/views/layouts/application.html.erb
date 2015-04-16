@@ -4,36 +4,31 @@
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
 
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
 
-  <title>UGtastic: Tech community interviews.</title>
+    <title>UGtastic: Tech community interviews.</title>
 
-  <link rel="stylesheet" href="stylesheets/foundation.min.css">
+    <link rel="stylesheet" href="/stylesheets/foundation.min.css">
 
-  <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet" href="stylesheets/main.css">
-  <link rel="stylesheet" href="stylesheets/app.css">
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/app.css">
 
-  <script src="javascripts/jquery.min.js"></script>
-  <script src="javascripts/modernizr.foundation.js"></script>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/modernizr.foundation.js"></script>
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
 
-  <!-- IE Fix for HTML5 Tags -->
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
-<body>
-  <div class="twelve columns header_nav_fullwidth">
-    <%= render 'layouts/header' %>
-  </div>
-
-      <%= yield %>
-
-</body>
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <%= yield %>
+  </body>
 </html>

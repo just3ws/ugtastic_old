@@ -1,0 +1,12 @@
+<ul id="menu-header" class="nav-bar horizontal">
+  <li class=""><a href="/">Home</a></li>
+
+  <li class="has-flyout">
+    <a href="#">Conferences</a><a href="#" class="flyout-toggle"></a>
+    <ul class="flyout">
+      <% @nav_conferences.each do |conference| %>
+        <li class="has-flyout"><a href="#"><%= conference.name %> <%= conference.city%> <%= conference.year%></a></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

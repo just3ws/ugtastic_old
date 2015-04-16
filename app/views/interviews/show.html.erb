@@ -1,103 +1,79 @@
-<div class="heading_dots" style="margin-bottom:15px"><h1 class="heading_supersize"><span class="heading_center_bg">PRODUCT NAME</span></h1></div>
-
-
 <div class="row">
-<div class="six columns">
-<img src="images/prod_large.jpg" alt="Product Image Description">
+  <a href="/">
+    <img src="/images/logo_black.png" alt="desc" style="border:none; margin-top:25px; margin-bottom: 9px;" />
+  </a>
 </div>
 
-<div class="six columns">
-<div class="panel">
+<div class="row page_wrap" style="margin-top:-2px">
+  <div class="twelve columns">
+    <div class="row">
+      <div class="twelve columns header_nav" style="margin-bottom:0; box-shadow: none">
+        <div class="twelve columns">
+          <%= render 'shared/navigation' %>
+        </div>
+      </div>
+    </div>
 
-              <h3>Product Price calculator</h3>
-            <p style="font-style: italic; font-family: Georgia">Not working without a script</p>
+    <div class="heading_dots" style="margin-bottom:15px">
+      <h1 class="<%= @you_tube_video.interviewee_names.length >= 32 ? 'heading_largesize' : 'heading_supersize' %>">
+        <span class="heading_center_bg"><%= @you_tube_video.interviewee_names %></span>
+      </h1>
+    </div>
 
+    <div class="row">
+      <div class="flex-video widescreen">
+        <iframe
+          id="ytplayer"
+          type="text/html"
+          width="640"
+          height="390"
+          src="https://www.youtube.com/embed/<%= @you_tube_video.remote_video_id %>?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&autohide=1&color=white&theme=light&origin=<%= ENV['YOUTUBE_EMBED_ORIGIN'] %>"
+          frameborder="0"
+          allowfullscreen></iframe>
+      </div>
+    </div>
 
-          <form name="product_list" action="#">
-
-      <label><strong>Width (cm)</strong></label>
-      <input name="width" id="width" value="15" class="input_title_invoice" type="text"><p></p>
-
-      <label><strong>Height (cm)</strong></label>
-      <input name="length" id="length" value="20" class="input_title_invoice" type="text"><p></p>
-
-          <label style="font-weight:bold">Extras</label>
-
-           <select name="print">
-       <option value="1100">Cheese</option>
-           <option value="2900">Vegetables</option>
-       <option value="1600">Potatos</option>
-           </select>
-
-      <p style="font-size: 11px; padding: 0 0 11px; margin-top: 9px">
-      <strong>*Cheese:</strong> Some description text goes here.<br>
-      <strong>*Vegetables:</strong> Some description text goes here.<br>
-      <strong>*Potatos:</strong> Some description text goes here.
-      </p>
-
-
-    <input name="unit_price" id="unit_price" value="340.00" type="hidden">
-
-    <input value="271" name="sales_price" id="total_item" type="hidden">
-
-
-    <p style="font-size: 24px">Totals: <span id="grandTotal">$271</span></p>
-
-      </form>
-
-  </div> <!-- end panel -->
-
-</div>
-</div><!-- end row -->
-
-<h4>Product Info</h4>
+    <% if @you_tube_video.subtitle.present? %>
+      <h4><%= @you_tube_video.subtitle %></h4>
+    <% end %>
 
     <div class="row">
       <div class="twelve columns">
 
-      <dl class="tabs three-up">
-        <dd class="active"><a href="#simple1">Overview</a></dd>
-        <dd><a href="#simple2">Spesifications</a></dd>
-        <dd><a href="#simple3">Customer Reviews</a></dd>
-      </dl>
+        <dl class="tabs two-up">
+          <dd class="active"><a href="#simple1">Description</a></dd>
 
-      <ul class="tabs-content">
-        <li class="active" id="simple1Tab">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dictum porttitor lacus, eget commodo turpis laoreet at. Donec pretium, enim ut tempor mattis, nisi nunc dapibus dui, et ultricies odio justo a elit.</p>
-        <ul>
-          <li>Lorem</li>
-          <li>Ipsum</li>
-          <li>Dolor</li>
+          <% @you_tube_video.transcripts.each_with_object(1) do |transcript, i| %>
+            <dd><a href="#simple<%= i += 1 %>"><%= "Transcript #{transcript.using_default_locale? ? '' : "(#{transcript.locale})" }" %></a></dd>
+          <% end %>
+        </dl>
+
+        <ul class="tabs-content">
+          <li class="active" id="simple1Tab">
+            <%= raw(MARKDOWN.render(@you_tube_video.description)) %>
+          </li>
+
+          <% @you_tube_video.transcripts.each_with_object(1) do |transcript, i| %>
+            <li id="simple<%= i += 1 %>Tab">
+              <%= raw(MARKDOWN.render(transcript.text)) %>
+            </li>
+          <% end %>
         </ul>
-
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dictum porttitor lacus, eget commodo turpis laoreet at. Donec pretium, enim ut tempor mattis, nisi nunc dapibus dui, et ultricies odio justo a elit.</p>
-
-        </li>
-        <li id="simple2Tab">Some content</li>
-        <li id="simple3Tab"><p><strong>John Doe:</strong> Amazing Product</p> <p><strong>Jane Doe:</strong> Ok Product</p> <p><strong>Doe Doe:</strong> Cool</p></li>
-      </ul>
-
       </div>
     </div>
 
 
-      <div class="row">
-        <div class="twelve columns">
-          <ul id="menu3" class="footer_menu horizontal">
-            <li class=""><a href="index.html">Home</a></li>
-          </ul><script type="text/javascript">
-//<![CDATA[
-            $('ul#menu3').nav-bar();
-          //]]>
-          </script>
-        </div>
+    <div class="row">
+      <div class="twelve columns">
+        <ul id="menu3" class="footer_menu horizontal">
+          <li class="">
+            <a href="/">Home</a>
+          </li>
+        </ul>
       </div>
+    </div>
+  </div>
+</div>
 
-      </div><!-- end page wrap) -->
-    </div><!-- end page wrap) -->
-    <!-- Included JS Files (Compressed) -->
-    <script src="javascripts/foundation.min.js" type="text/javascript">
-</script> <!-- Initialize JS Plugins -->
-     <script src="javascripts/app.js" type="text/javascript">
-</script>
-
+<script src="/javascripts/foundation.min.js" type="text/javascript"></script>
+<script src="/javascripts/app.js" type="text/javascript"></script>

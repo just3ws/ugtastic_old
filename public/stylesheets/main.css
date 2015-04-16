@@ -1,6 +1,6 @@
 /* Css Theme by CssTemplateHeaven - www.csstemplateheaven.com */
 body {
-  background: #fff url(../images/bg_dark.png)
+  background: #fff url(/images/bg_dark.png)
 }
 
 .row {
@@ -67,11 +67,11 @@ h1,h2,h3,h4 {
 }
 
 .heading_dots {
-  background: url(../images/heading_dots_grey.png) repeat-x center
+  background: url(/images/heading_dots_grey.png) repeat-x center
 }
 
 .heading_dots_grey {
-  background: url(../images/heading_dots_grey.png) repeat-x center
+  background: url(/images/heading_dots_grey.png) repeat-x center
 }
 
 .heading_bg {
@@ -165,13 +165,13 @@ dl.tabs dd.active {
   box-shadow: none
 }
 
-.nav-bar > li.active: hover {
-  background: #f34c31;
+.nav-bar > li.active:hover {
+  background: #D22925;
   cursor: default
 }
 
-.nav-bar > li: hover {
-  background: #f34c31;
+.nav-bar > li:hover {
+  background: #D22925;
   color: #000;
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
@@ -184,7 +184,7 @@ dl.tabs dd.active {
   color: #fff
 }
 
-.nav-bar > li > a: hover {
+.nav-bar > li > a:hover {
   color: #fff
 }
 
@@ -200,7 +200,7 @@ dl.tabs dd.active {
   top: 20px
 }
 
-.nav-bar > li.has-flyout > a: hover: first-child: after {
+.nav-bar > li.has-flyout > a:hover: first-child: after {
   content: "";
   display: block;
   width: 0;
@@ -216,7 +216,7 @@ dl.tabs dd.active {
   background: #09314F;
   border-radius: 5px;
   border: 0;
-  margin-top: 8px;
+  margin-top: 0px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.7)
 }
 
@@ -230,9 +230,8 @@ ul.flyout li a,.nav-bar li ul li a {
   border: 0;
   font-size: 16px
 }
-
-ul.flyout li a: hover,.nav-bar li ul li a: hover {
-  background: #f34c31;
+ul.flyout li a:hover,.nav-bar li ul li a:hover {
+  background: #7594A0;
   color: #fff;
   border: 0;
   -webkit-transition: all .2s ease-in-out;
@@ -266,7 +265,7 @@ ul.flyout li a: hover,.nav-bar li ul li a: hover {
   padding: 3px 12px
 }
 
-.gallery-nav-bar li a: hover {
+.gallery-nav-bar li a:hover {
   background: #C02702;
   color: #FFF;
   padding: 3px 12px;
@@ -328,7 +327,7 @@ ul.flyout li a: hover,.nav-bar li ul li a: hover {
 .pricing_box .header {
   text-shadow: 0 1px 1px #fff;
   border-bottom: 1px solid #ccc;
-  background: url(../images/price.bg.png) repeat;
+  background: url(/images/price.bg.png) repeat;
   -webkit-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
   -moz-border-top-right-radius: 5px;
@@ -405,7 +404,7 @@ ul.flyout li a: hover,.nav-bar li ul li a: hover {
 }
 
 .pricing_box strong {
-  background: url(../images/price.sprite.png) no-repeat 0 -9999px;
+  background: url(/images/price.sprite.png) no-repeat 0 -9999px;
   height: 12px;
   padding-left: 20px;
   font-style: normal;
@@ -429,7 +428,7 @@ ul.flyout li a: hover,.nav-bar li ul li a: hover {
 }
 
 .pricing_box strong.more {
-  background: url(../images/price.more.png) no-repeat 0 0;
+  background: url(/images/price.more.png) no-repeat 0 0;
   height: 20px;
   width: 20px;
   cursor: pointer;
@@ -455,7 +454,7 @@ ul.flyout li a: hover,.nav-bar li ul li a: hover {
 
 .pricing_box p.button {
   height: 40px;
-  background: url(../images/price.readmore.png) no-repeat left 0;
+  background: url(/images/price.readmore.png) no-repeat left 0;
   float: none
 }
 
@@ -463,15 +462,15 @@ ul.flyout li a: hover,.nav-bar li ul li a: hover {
   font-size: 16px;
   font-weight: 700;
   line-height: 40px;
-  background: url(../images/price.readmore.png) no-repeat right -40px;
+  background: url(/images/price.readmore.png) no-repeat right -40px;
   padding: 0 40px
 }
 
-.pricing_box p.button: hover {
+.pricing_box p.button:hover {
   background-position: left -80px
 }
 
-.pricing_box p.button a: hover {
+.pricing_box p.button a:hover {
   background-position: right -120px
 }
 
@@ -490,7 +489,7 @@ ul.flyout li a: hover,.nav-bar li ul li a: hover {
   color: #303E0E;
   text-shadow: 0 1px 0 #C7DD90;
   height: 88px;
-  background: url(../images/price.bg.signup.png) repeat;
+  background: url(/images/price.bg.signup.png) repeat;
   border-bottom: 1px solid #b2d850
 }
 
@@ -501,25 +500,25 @@ ul.flyout li a: hover,.nav-bar li ul li a: hover {
 .pricing_box.large .header span.info {
   top: 14px;
   color: #576e1f;
-  text-shadow: none
+  text-shadow: none;
 }
 
 .pricing_box.large p.button {
-  background-position: left -160px
+  background-position: left -160px;
 }
 
 .pricing_box.large p.button a {
   background-position: right -200px;
   color: #303E0E;
-  text-shadow: 0 1px 0 #C7DD90
+  text-shadow: 0 1px 0 #C7DD90;
 }
 
-.pricing_box.large p.button: hover {
-  background-position: left -240px
+.pricing_box.large p.button:hover {
+  background-position: left -240px;
 }
 
-.pricing_box.large p.button a: hover {
-  background-position: right -280px
+.pricing_box.large p.button a:hover {
+  background-position: right -280px;
 }
 
 /*-------------------------------------------------------------------------------------------------*/
