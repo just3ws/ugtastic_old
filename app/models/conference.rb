@@ -1,6 +1,8 @@
 class Conference < ActiveRecord::Base
   has_many :interviews, class_name: 'YouTube::Video', inverse_of: :conference
 
+  scope :published, -> { where.not(name: 'Null') }
+
   include PgSearch
   multisearchable against: %i(name year country homepage city address), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)
 

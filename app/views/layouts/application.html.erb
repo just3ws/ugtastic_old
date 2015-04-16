@@ -21,7 +21,7 @@
   <script src="javascripts/jquery.min.js"></script>
   <script src="javascripts/modernizr.foundation.js"></script>
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -31,24 +31,25 @@
 <body>
   <div class="twelve columns header_nav_fullwidth">
     <%= render 'layouts/header' %>
+  </div>
 
-    <div class="twelve columns">
-      <div id="container">
-        <%= yield %>
-      </div>
-      <%= render 'layouts/footer' %>
+  <div class="twelve columns">
+    <div id="container">
+      <%= yield %>
     </div>
+    <%= render 'layouts/footer' %>
+  </div>
 
-    <script src="javascripts/foundation.min.js" type="text/javascript"></script>
+  <script src="javascripts/foundation.min.js" type="text/javascript"></script>
 
-    <script src="javascripts/app.js" type="text/javascript"></script>
-    <script src="javascripts/masonry.js" type="text/javascript"></script>
+  <script src="javascripts/app.js" type="text/javascript"></script>
+  <script src="javascripts/masonry.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-      $(function(){
-        var $container = $('#container');
-        $container.imagesLoaded(function() { $container.masonry({itemSelector : '.box', isFitWidth: true, isAnimated: true}); });
-      });
-    </script>
-  </body>
+  <script type="text/javascript">
+    $(function(){
+      var $container = $('#container');
+      $container.imagesLoaded(function() { $container.masonry({itemSelector : '.box', isFitWidth: true, isAnimated: true}); });
+    });
+  </script>
+</body>
 </html>

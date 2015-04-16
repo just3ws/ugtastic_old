@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
 
   before_action :log_metrics
+  before_action :get_conferences
 
   rescue_from ActionController::RoutingError, with: :render_404
 
@@ -65,5 +66,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     redirect_to root_url, alert: 'You need to sign in for access to this page.' unless current_user
+  end
+
+  def get_conferences
+    @nav_conferences = Conference.published
   end
 end
