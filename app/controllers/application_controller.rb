@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   before_action :log_metrics
   before_action :get_conferences
 
-  rescue_from ActionController::RoutingError, with: :render_404
+  rescue_from ActionController::RoutingError, with: :not_found
 
   def not_found(exception = nil)
     logger.info "Rendering 404: #{exception.message}" if exception

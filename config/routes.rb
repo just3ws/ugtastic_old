@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root to: 'interviews#index'
 
   # last rule for unmatched requests
-  get '*unmatched_route', to: 'application#not_found'
+  get '*unmatched_route', to: 'errors#intercept_404'
 end
 
 # == Route Map
