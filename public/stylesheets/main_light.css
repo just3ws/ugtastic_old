@@ -27,8 +27,8 @@ h1,h2,h3,h4 {font-family:'Open Sans Condensed',sans-serif; font-weight: normal}
 .heading_supersize {font-size: 74px; text-align:center; font-weight: normal; line-height: normal; margin:0 0 10px}
 .heading_largesize {font-size: 44px; text-align:center; font-weight: normal}
 
-.dropcap_red, 
-.dropcap_black {  
+.dropcap_red,
+.dropcap_black {
             border-radius: 100px 100px 100px 100px;
             display: block;
 			float: left;
@@ -62,12 +62,12 @@ dl.tabs dd.active {
 .nav-bar > li > a:first-child {font-size: 16px; text-transform: uppercase; padding: 5px 25px}
 .nav-bar > li:last-child {border: 0; box-shadow: none}
 .nav-bar > li.active:hover { background: #f34c31; cursor: default; }{}
-.nav-bar > li:hover { background: #f34c31; color: #000;         
+.nav-bar > li:hover { background: #f34c31; color: #000;
         -webkit-transition: all .2s ease-in-out;
         -moz-transition: all .2s ease-in-out;
         -ms-transition: all .2s ease-in-out;
         -o-transition: all .2s ease-in-out;
-        transition: all .2s ease-in-out; 
+        transition: all .2s ease-in-out;
 }
 
 .nav-bar > li > a { color: #fff}
@@ -82,14 +82,14 @@ dl.tabs dd.active {
 
 ul.flyout li, .nav-bar li ul li { border-left: 0}
 ul.flyout li a, .nav-bar li ul li a { background: #FE563B; color:#FFF; border: 0; font-size: 16px;}
-ul.flyout li a:hover, .nav-bar li ul li a:hover { background: #f34c31; color: #fff; border: 0;         
+ul.flyout li a:hover, .nav-bar li ul li a:hover { background: #f34c31; color: #fff; border: 0;
         -webkit-transition: all .2s ease-in-out;
         -moz-transition: all .2s ease-in-out;
         -ms-transition: all .2s ease-in-out;
         -o-transition: all .2s ease-in-out;
-        transition: all .2s ease-in-out; 
+        transition: all .2s ease-in-out;
 		}
-		
+
 /* gallery menu */
 
 .gallery-nav-bar {list-style:none; text-align: center; padding-top:10px; font-family: 'Open Sans Condensed',sans-serif; letter-spacing: 2px; text-transform: uppercase}
@@ -121,7 +121,7 @@ ul.flyout li a:hover, .nav-bar li ul li a:hover { background: #f34c31; color: #f
 .pricing_box .header  { text-shadow: 0 1px 1px #fff; border-bottom: 1px solid #ccc; background: url(../images/price.bg.png) repeat; -webkit-border-top-right-radius: 5px; border-top-right-radius: 5px; -moz-border-top-right-radius: 5px; -webkit-border-top-left-radius: 5px; border-top-left-radius: 5px; -moz-border-top-left-radius: 5px;}
 .pricing_box .header { width: 100%; height: 68px; }
 .pricing_box .header span { position: relative; top: 20px; font-size: 16px; font-weight: bold; line-height: 28px;}
-.pricing_box .header span.info { position: relative; font-size: 12px; font-weight: normal; top: 2px; display: block; color: gray; } 
+.pricing_box .header span.info { position: relative; font-size: 12px; font-weight: normal; top: 2px; display: block; color: gray; }
 .pricing_box p { line-height: 28px;}
 .pricing_box ul { list-style: none; margin: 0 0 15px 0!important; text-align: left;}
 
@@ -196,11 +196,11 @@ ul.flyout li a:hover, .nav-bar li ul li a:hover { background: #f34c31; color: #f
 
 
 .box_comment {background: #F2F0F0; border-bottom: 1px solid white; padding: 8px; border-bottom: 1px solid #D9D4D4; border-top: 1px solid #FCFAFA; overflow: hidden;}
-.box_comment p {font-size: 11px; padding: 0px; margin:0}
+.box_comment p {font-size: 11px; padding: 0px; margin:0; }
 
 .rtl .box {
   float: right;
-  text-align: right; 
+  text-align: right;
   direction: rtl;
 }
 

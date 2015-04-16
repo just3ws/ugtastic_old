@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  resources :conferences, only: %i(index show)
   resources :interviews, only: %i(index show)
   resources :users
-  root to: 'interviews#index'
+
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', as: :signin
   get '/signout' => 'sessions#destroy', as: :signout
   get '/auth/failure' => 'sessions#failure'
 
+  root to: 'interviews#index'
+
+  # last rule for unmatched requests
   get '*unmatched_route', to: 'application#not_found'
 end
 

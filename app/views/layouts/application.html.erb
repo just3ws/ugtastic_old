@@ -1,70 +1,54 @@
 <!DOCTYPE html>
-
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
 
-    <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="width=device-width" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
 
-    <title>Creative Studios by CssTemplateHeaven</title>
+  <title>UGtastic: Tech community interviews.</title>
 
-    <!-- Included CSS Files (Uncompressed) -->
-    <link rel="stylesheet" href="stylesheets/foundation.css">
+  <link rel="stylesheet" href="stylesheets/foundation.min.css">
 
-    <!-- Included CSS Files (Compressed) -->
-    <link rel="stylesheet" href="stylesheets/main.css">
-    <link rel="stylesheet" href="stylesheets/app.css">
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="stylesheets/main.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
 
-    <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/jquery.min.js"></script>
+  <script src="javascripts/modernizr.foundation.js"></script>
 
-    <script src="javascripts/modernizr.foundation.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
 
-    <!-- Google fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="twelve columns header_nav_fullwidth">
+    <%= render 'layouts/header' %>
 
-    <!-- IE Fix for HTML5 Tags -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="twelve columns header_nav_fullwidth">
-      <%= render 'layouts/header' %>
-
-      <!-- page wrap -->
-      <div class="twelve columns">
-        <div id="container">
-
-          <%= yield %>
-
-        </div>
-
-        <%= render 'layouts/footer' %>
+    <div class="twelve columns">
+      <div id="container">
+        <%= yield %>
       </div>
+      <%= render 'layouts/footer' %>
+    </div>
 
-      <!-- end page wrap) -->
-      <!-- Included JS Files (Compressed) -->
-      <script src="javascripts/foundation.min.js" type="text/javascript"></script>
+    <script src="javascripts/foundation.min.js" type="text/javascript"></script>
 
-      <script src="javascripts/app.js" type="text/javascript"></script>
-      <script src="javascripts/masonry.js" type="text/javascript"></script>
+    <script src="javascripts/app.js" type="text/javascript"></script>
+    <script src="javascripts/masonry.js" type="text/javascript"></script>
 
-      <script type="text/javascript">
-        $(function(){
-          var $container = $('#container');
-          $container.imagesLoaded( function(){
-            $container.masonry({
-              itemSelector : '.box',
-              isFitWidth: true,
-              isAnimated: true
-            });
-          });
-        });
-      </script>
-    </body>
-  </html>
+    <script type="text/javascript">
+      $(function(){
+        var $container = $('#container');
+        $container.imagesLoaded(function() { $container.masonry({itemSelector : '.box', isFitWidth: true, isAnimated: true}); });
+      });
+    </script>
+  </body>
+</html>
