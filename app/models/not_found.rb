@@ -1,5 +1,16 @@
 class NotFound < ActiveRecord::Base
   validates :url, presence: true
+
+  rails_admin do
+    list do
+      field :url do
+        pretty_value do
+          URI.parse(value).path
+        end
+      end
+      field :created_at
+    end
+  end
 end
 
 # == Schema Information
