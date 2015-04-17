@@ -1,7 +1,7 @@
 base_url = "https://#{request.host_with_port}"
 
 xml.instruct! :xml, version: '1.0'
-xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
+xml.tag! 'urlset', 'xmlns' => 'https://www.sitemaps.org/schemas/sitemap/0.9' do
   xml.url {
     xml.loc("https://www.ugtastic.com")
     xml.changefreq("weekly")
