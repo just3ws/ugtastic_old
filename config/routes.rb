@@ -20,6 +20,8 @@ end
 #
 #       Prefix Verb   URI Pattern                        Controller#Action
 #  rails_admin        /admin                             RailsAdmin::Engine
+#  conferences GET    /conferences(.:format)             conferences#index
+#   conference GET    /conferences/:id(.:format)         conferences#show
 #   interviews GET    /interviews(.:format)              interviews#index
 #    interview GET    /interviews/:id(.:format)          interviews#show
 #        users GET    /users(.:format)                   users#index
@@ -30,12 +32,12 @@ end
 #              PATCH  /users/:id(.:format)               users#update
 #              PUT    /users/:id(.:format)               users#update
 #              DELETE /users/:id(.:format)               users#destroy
-#         root GET    /                                  interviews#index
 #              GET    /auth/:provider/callback(.:format) sessions#create
 #       signin GET    /signin(.:format)                  sessions#new
 #      signout GET    /signout(.:format)                 sessions#destroy
 # auth_failure GET    /auth/failure(.:format)            sessions#failure
-#              GET    /*unmatched_route(.:format)        application#not_found
+#         root GET    /                                  interviews#index
+#              GET    /*unmatched_route(.:format)        errors#intercept_404
 #
 # Routes for RailsAdmin::Engine:
 #     dashboard GET         /                                      rails_admin/main#dashboard

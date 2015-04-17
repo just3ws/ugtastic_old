@@ -1,6 +1,6 @@
 class ErrorsController < ApplicationController
   def intercept_404
-    Rails.logger.error("INTERCEPTED_404=#{request.url}")
+    NotFound.create(url: request.url)
 
     not_found
   end
