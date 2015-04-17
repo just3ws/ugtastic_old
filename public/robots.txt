@@ -1,2 +1,4 @@
+Sitemap: https://www.ugtastic.com/sitemap.xml
+
 User-agent: *
 Disallow: /admin

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get 'sitemap' => 'sitemaps#index'
 
-  resources :conferences, only: %i(index show)
   resources :interviews, only: %i(index show)
+  resources :sitemaps, only: %i(index)
+  resources :conferences, only: %i(index show)
   resources :users
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', as: :signin
   get '/signout' => 'sessions#destroy', as: :signout
