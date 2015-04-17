@@ -1,6 +1,18 @@
 Rails.application.configure do
-  config.assets.cache_store = :dalli_store, ENV['MEMCACHEDCLOUD_SERVERS'], { namespace: 'ugtastic-assets.cache_store', expires_in: 7.days, compress: true }
-  config.cache_store = :dalli_store, ENV['MEMCACHEDCLOUD_SERVERS'], { namespace: 'ugtastic-cache_store', expires_in: 7.days, compress: true }
+  config.assets.cache_store = :dalli_store, ENV['MEMCACHEDCLOUD_SERVERS'], {
+    namespace: 'ugtastic-assets.cache_store',
+    expires_in: 7.days,
+    compress: true,
+    username: ENV['MEMCACHEDCLOUD_USERNAME'],
+    password: ENV['MEMCACHEDCLOUD_PASSWORD']
+  }
+  config.cache_store = :dalli_store, ENV['MEMCACHEDCLOUD_SERVERS'], {
+    namespace: 'ugtastic-cache_store',
+    expires_in: 7.days,
+    compress: true,
+    username: ENV['MEMCACHEDCLOUD_USERNAME'],
+    password: ENV['MEMCACHEDCLOUD_PASSWORD']
+  }
 
   config.action_controller.perform_caching = true
   config.action_dispatch.rack_cache = true
