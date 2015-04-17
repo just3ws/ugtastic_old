@@ -31,6 +31,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
+  config.middleware.use( Oink::Middleware, logger: Hodel3000CompliantLogger.new(STDOUT))
 end
 
 Rails.logger = Le.new(Rails.application.secrets.le_api_token, ssl: true, tag: true)
