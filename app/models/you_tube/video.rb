@@ -79,9 +79,9 @@ module YouTube
       true
     end
 
-    delegate :year, to: :conference, prefix: true, allow_nil: true
-
+    delegate :city, to: :conference, prefix: true, allow_nil: true
     delegate :name, to: :conference, prefix: true, allow_nil: true
+    delegate :year, to: :conference, prefix: true, allow_nil: true
 
     def interviewee_names
       interviewees.pluck(:name).to_sentence

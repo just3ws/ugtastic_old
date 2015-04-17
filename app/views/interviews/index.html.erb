@@ -5,6 +5,7 @@
 <div class="twelve columns">
   <div id="container">
     <% @you_tube_videos.each do |interview| %>
+
       <% cache interview do %>
         <div class='box photo col2'>
           <%= link_to interview_path(interview) do %>
@@ -16,15 +17,11 @@
           <% end %>
           <p><%= truncate(interview.description, length: 100, omission: '…') %></p>
           <% if interview.at_conference? %>
-            <div class="box_comment conference"><p><%= link_to "#{interview.conference_name} #{interview.conference.city} #{interview.conference_year}", interview.conference %></p></div>
+            <div class="box_comment conference"><p><%= link_to "#{interview.conference_name} #{interview.conference_city} #{interview.conference_year}", interview.conference %></p></div>
           <% end %>
-          <!--
-          <div class="box_comment"><p>Amazing Picture!</p></div>
-          <div class="box_comment"><p>Love this!</p></div>
-          <div class="box_comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p></div>
-          -->
         </div>
       <% end %>
+
     <% end %>
   </div>
   <%= render 'shared/footer' %>
