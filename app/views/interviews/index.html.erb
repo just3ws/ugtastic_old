@@ -4,25 +4,27 @@
 
 <div class="twelve columns">
   <div id="container">
-    <% @you_tube_videos.each do |you_tube| %>
-      <div class='box photo col2'>
-        <%= link_to interview_path(you_tube) do %>
-          <%= image_tag(you_tube.thumbnail('medium').url, 'data-caption' => you_tube.title, size: "#{you_tube.thumbnail('medium').width}x#{you_tube.thumbnail('medium').height}", alt: you_tube.title, class: 'video_thumbnail') %>
-        <% end %>
-        <h4><strong><%= you_tube.interviewee_names %></strong></h4>
-        <% if you_tube.subtitle.present? %>
-          <h5><%= you_tube.subtitle %></h5>
-        <% end %>
-        <p><%= truncate(you_tube.description, length: 100, omission: '…') %></p>
-        <% if you_tube.at_conference? %>
-          <div class="box_comment conference"><p><%= link_to "#{you_tube.conference_name} #{you_tube.conference.city} #{you_tube.conference_year}", you_tube.conference %></p></div>
-        <% end %>
-        <!--
-        <div class="box_comment"><p>Amazing Picture!</p></div>
-        <div class="box_comment"><p>Love this!</p></div>
-        <div class="box_comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p></div>
-        -->
-      </div>
+    <% @you_tube_videos.each do |interview| %>
+      <% cache interview do %>
+        <div class='box photo col2'>
+          <%= link_to interview_path(interview) do %>
+            <%= image_tag(interview.thumbnail('medium').url, 'data-caption' => interview.title, size: "#{interview.thumbnail('medium').width}x#{interview.thumbnail('medium').height}", alt: interview.title, class: 'video_thumbnail') %>
+          <% end %>
+          <h4><strong><%= interview.interviewee_names %></strong></h4>
+          <% if interview.subtitle.present? %>
+            <h5><%= interview.subtitle %></h5>
+          <% end %>
+          <p><%= truncate(interview.description, length: 100, omission: '…') %></p>
+          <% if interview.at_conference? %>
+            <div class="box_comment conference"><p><%= link_to "#{interview.conference_name} #{interview.conference.city} #{interview.conference_year}", interview.conference %></p></div>
+          <% end %>
+          <!--
+          <div class="box_comment"><p>Amazing Picture!</p></div>
+          <div class="box_comment"><p>Love this!</p></div>
+          <div class="box_comment"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p></div>
+          -->
+        </div>
+      <% end %>
     <% end %>
   </div>
   <%= render 'shared/footer' %>
