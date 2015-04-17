@@ -17,7 +17,7 @@ xml.tag! 'urlset', 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
   @interviews.each do |interview|
     cache interview do
       xml.url {
-        xml.loc("https://www.ugtastic.com/#{interview.id.to_s}")
+        xml.loc(interview_url(interview, host: 'www.ugtastic.com', protocol: 'https://'))
         xml.changefreq('weekly')
         xml.priority(0.5)
       }
