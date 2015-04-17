@@ -39,6 +39,7 @@ gem 'simple_form'
 gem 'stamp'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
+gem 'oink'
 
 group :development do
   gem 'annotate'
