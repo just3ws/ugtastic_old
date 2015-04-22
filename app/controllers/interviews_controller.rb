@@ -1,10 +1,13 @@
 class InterviewsController < ApplicationController
   def index
-    query = params[:q]
 
-    @you_tube_videos = if query.present?
+    @you_tube_videos = if params[:q].present?
+
+                         @query = params[:q].strip
+                         @header_title = "Interview Search: \"#{@query}\""
+
                          found_ids = PgSearch.
-                           multisearch(query).
+                           multisearch(@query).
                            where(searchable_type: 'YouTube::Video').
                            pluck(:searchable_id).
                            uniq.

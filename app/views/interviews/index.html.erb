@@ -2,6 +2,13 @@
   <%= render 'shared/header' %>
 </div>
 
+<div class="twelve columns" >
+  <h1 id="header_title"><%= @header_title || 'All Interviews' %></h1>
+    <%= form_tag interviews_path, method: :get, remote: true do %>
+      <input tabindex="0" autofocus type="search" placeholder="Filter interviews" id="q" name="q" style="display: inline-block;" value="<%= @query %>">
+    <% end %>
+</div>
+
 <div class="twelve columns">
   <div id="container">
     <% @you_tube_videos.each do |interview| %>
