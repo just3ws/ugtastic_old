@@ -21,11 +21,12 @@ end
 # == Route Map
 #
 #       Prefix Verb   URI Pattern                        Controller#Action
-#  rails_admin        /admin                             RailsAdmin::Engine
-#  conferences GET    /conferences(.:format)             conferences#index
-#   conference GET    /conferences/:id(.:format)         conferences#show
+#      sitemap GET    /sitemap(.:format)                 sitemaps#index
 #   interviews GET    /interviews(.:format)              interviews#index
 #    interview GET    /interviews/:id(.:format)          interviews#show
+#     sitemaps GET    /sitemaps(.:format)                sitemaps#index
+#  conferences GET    /conferences(.:format)             conferences#index
+#   conference GET    /conferences/:id(.:format)         conferences#show
 #        users GET    /users(.:format)                   users#index
 #              POST   /users(.:format)                   users#create
 #     new_user GET    /users/new(.:format)               users#new
@@ -34,6 +35,7 @@ end
 #              PATCH  /users/:id(.:format)               users#update
 #              PUT    /users/:id(.:format)               users#update
 #              DELETE /users/:id(.:format)               users#destroy
+#  rails_admin        /admin                             RailsAdmin::Engine
 #              GET    /auth/:provider/callback(.:format) sessions#create
 #       signin GET    /signin(.:format)                  sessions#new
 #      signout GET    /signout(.:format)                 sessions#destroy

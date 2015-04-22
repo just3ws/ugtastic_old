@@ -3,6 +3,9 @@ class Conference < ActiveRecord::Base
 
   scope :published, -> { where.not(name: 'Null') }
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   include PgSearch
   multisearchable against: %i(name year country homepage city address), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)
 
@@ -26,4 +29,5 @@ end
 #  updated_at :datetime         not null
 #  latitude   :float
 #  longitude  :float
+#  slug       :string
 #

@@ -1,9 +1,13 @@
 class ConferencesController < ApplicationController
   def index
-    # @you_tube_videos = YouTube::Video.published.order(id: 'asc') # .page(params[:page])
+    @conferences = Conference.all
   end
 
   def show
-    # @you_tube_video = YouTube::Video.friendly.find(params[:id])
+    @conference = Conference.friendly.find(params[:id])
+    @header_title = "#{@conference.name} Interviews"
+    @you_tube_videos = @conference.interviews
+
+    render 'interviews/index'
   end
 end

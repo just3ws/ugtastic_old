@@ -7,7 +7,9 @@
     <a href="#">Conferences</a><a href="#" class="flyout-toggle"></a>
     <ul class="flyout">
       <% @nav_conferences.each do |conference| %>
-        <li class="has-flyout"><a href="#"><%= conference.name %> <%= conference.city%> <%= conference.year%></a></li>
+        <li class="has-flyout">
+          <%= link_to "#{conference.name} #{conference.city} #{conference.year}", conference_path(conference) %>
+        </li>
       <% end %>
     </ul>
   </li>
