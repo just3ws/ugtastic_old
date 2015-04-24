@@ -497,7 +497,7 @@ GEM
     timecop (0.7.3)
     timers (4.0.1)
       hitimes
-    tins (1.4.2)
+    tins (1.5.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
