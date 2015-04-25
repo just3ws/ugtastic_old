@@ -19,7 +19,9 @@ namespace :cleanup do
     Reeder zitebot Amazon\ CloudFront Exabot Nerdybot
     msnbot TweetmemeBot Pingdom.com_bot_version Mail.RU_Bot
     linkdexbot PaperLiBot Slackbot-LinkExpanding Blekkobot
-    WASALive linkfluence LivelapBot
+    WASALive linkfluence LivelapBot newspaper Bichoo
+    TweetedTimes Digg\ Feed\ Fetcher TwitterCrawler AdsBot
+    Speedy\ Spider facebook
     ).each do |fragment|
       Metric.where('request_user_agent ilike ?', "%#{fragment}%").destroy_all
     end
