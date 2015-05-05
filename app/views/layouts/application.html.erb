@@ -10,7 +10,12 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
 
-  <title>UGtastic: Tech community interviews.</title>
+  <title><%- if content_for?(:title) -%>
+      <%= yield :title %>
+    <%- else -%>
+      UGtastic: Tech community interviews.
+    <%- end -%></title>
+
   <%= yield :canonical_tag %>
 
   <link rel="stylesheet" href="/stylesheets/foundation.min.css">
@@ -44,6 +49,6 @@
   <meta name="p:domain_verify" content="a4812db302fab9a3a7b11c3308fbd8c7">
 </head>
 <body>
-<%= yield %>
+  <%= yield %>
 </body>
 </html>
