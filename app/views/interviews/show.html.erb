@@ -1,7 +1,14 @@
-<%- content_for :title do -%>
-  Interview with <%= @you_tube_video.interviewee_names %><% if @you_tube_video.at_conference? %> @ <%= @you_tube_video.conference_name %> <%= @you_tube_video.conference.city %> <%= @you_tube_video.conference_year %>
-<% end %>
-<%- end -%>
+<%
+    meta \
+      title: title_for_interview(@you_tube_video),
+      twitter: {
+        card: :summary,
+        site: '@ugtastic',
+        title: title_for_interview(@you_tube_video),
+        domain: 'ugtastic.com'
+      }
+%>
+
 <%- content_for :canonical_tag do -%>
   <link rel='canonical' href="<%= interview_url(@you_tube_video, host: 'www.ugtastic.com', protocol: 'https://') -%>" />
 <%- end -%>

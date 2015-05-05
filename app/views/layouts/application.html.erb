@@ -10,13 +10,8 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
 
-  <title><%- if content_for?(:title) -%>
-      <%= yield :title %>
-    <%- else -%>
-      UGtastic: Tech community interviews.
-    <%- end -%></title>
-
   <%= yield :canonical_tag %>
+  <%= metamagic %>
 
   <link rel="stylesheet" href="/stylesheets/foundation.min.css">
 
