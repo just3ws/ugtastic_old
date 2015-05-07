@@ -42,6 +42,14 @@ gem 'stamp'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 
+# Redis
+gem 'hiredis'
+gem 'redis', require: ['redis', 'redis/connection/hiredis']
+
+# Sidekiq
+gem 'sinatra', '>= 1.3.0', require: false
+gem 'sidekiq'
+
 group :development do
   gem 'annotate'
   gem 'better_errors'
