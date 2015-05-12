@@ -22,7 +22,7 @@
           <% end %>
           <h4><strong><%= interview.interviewee_names %></strong></h4>
           <% if interview.subtitle.present? %>
-            <h5><%= interview.subtitle %></h5>
+            <h5 class="box-subtitle"><%= interview.subtitle %></h5>
           <% end %>
           <p><%= truncate(interview.description, length: 100, omission: '…') %></p>
           <% if interview.at_conference? %>
