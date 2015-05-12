@@ -47,68 +47,41 @@ module Ugtastic
 
     # rack-rewrite
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      # r301 '/sandro-mancuso-interview-3',
-      # r301 '/charley-baker',
-      # r301 '/interview-cindy-sprague-lead-organizer-goto-chicago-2014',
-      # r301 '/interviews/it-s-technically-everyone-s-tech-community',
-      # r301 '/interviews/fest-of-geeks',
-      # r301 '/interviews/coding-in-the-great-outdoors',
-      # r301 '/interviews/tech-community-in-denver-boulder',
-      # r301 '/interviews/from-the-people-that-helped-make-the-web-open-mozilla-might-do-the-same-for-mobile-phones',
-      # r301 '/interviews/getting-chippy-with-chipy',
-      # r301 '/interviews/the-digital-natives-are-restless',
-      # r301 '/interviews/railers-gone-mad-in-madison',
-      # r301 '/interviews/lights-camera-windycityrails',
-      # r301 '/conferences/software-craftsmanship-north-america-2011-interviews',
-      # r301 '/interviews/scott-seely-runs-a-net-users-group-up-in',
-      # r301 '/sean-massa-and-todd-larsen-528',
-      # r301 '/conferences/software-craftsmanship-north-america-2012-interviews',
-      # r301 '/interviews/from-java-to-ruby-and-the-communities-that-bind-them',
-      # r301 '/interviews/dc-net',
-      # r301 '/interviews/chi-town-craftsmanship',
-      # r301 '/interviews/midwestern-and-east-coast-ruby-community',
-      # r301 '/shirley-bailes-interview',
-      # r301 '/interviews/teacher',
-      # r301 '/erik-meijer-1322',
-      # r301 '/interviews/welcome-to-the-user-group-industry-you-re-going-to-have-a-good-time',
-      # r301 '/sergio-pereira-563',
-      # r301 '/interviews/foss-contributor',
-      # r301 '/mark-simpson-1888',
-      # r301 '/interviews/a-designer-perspective-for-a-developer-community',
-      # r301 '/interviews/just-in-love-with-ruby-javascript',
-      # r301 '/interviews/net-in-the-top-left-corner-of-the-usa',
-      # r301 '/interviews/chicago-big-shoulders-big-data',
-      # r301 '/interviews/get-a-masters-in-software-craftsmanship-at-8th-light-university',
-      # r301 '/interviews/sc-tampa',
-      # r301 '/interviews/i-can-t-imaging-a-chicago-ruby-scene-without-ray-bringing-it-all-together',
-      # r301 '/interviews/active-java',
-      # r301 '/charley-barker',
-      # r301 '/interviews/koans',
-      # r301 '/groups/london-software-craftsmanship',
-      # r301 '/robert-martin-511',
-      # r301 '/interviews/multimedia-teaching',
-      # r301 '/desi-mcadam-and-sarah-allen-499',
-      # r301 '/interview-vooza-founder-matt-ruby/-',
-      # r301 '/tim-murphy-498',
-      # r301 '/dean-wampler-1016',
-      # r301 '/mike-clement-501',
-      # r301 '/interviews/learning-about-interviewing',
-      # r301 '/kumar-mcmillan-524',
-      # r301 '/aaron-bedra-516',
-      # r301 '/eric-macadie-537',
-      # r301 '/getting-back-on-the-bike-or-horse-whichever-m',
-      # r301 '/charley-baker-562',
-      # r301 '/post/13084904618/zach-and-i-first-met-at-software-craftsmanship',
-      # r301 '/learning-moment-and-empathizing-with-new-lear',
-      # r301 '/melissa-castello',
-      # r301 '/interviews/destroy-all-bad-programming',
-      # r301 '/post/19498921659/scott-seely-runs-a-net-users-group-up-in',
-      # r301 '/evan-light/Coding',
-
-      # rewrite   '/wiki/John_Trupiano',  '/john'
-      # r301      '/wiki/Yair_Flicker',   '/yair'
-      # r302      '/wiki/Greg_Jastrab',   '/greg'
-      # r301      %r{/wiki/(\w+)_\w+},    '/$1'
+      # r301 '/interview-amanda-jesse-harlin-okc-js-thunder-plains-techlahoma'
+      r301 '/adam-grandy', '/interviews/windycityrails-2011-adam-grandy'
+      r301 '/amitai-schlair', '/interviews/software-craftsmanship-north-america-2013-amitai-schlair'
+      r301 '/brad-nunnally', '/interviews/webvisions-2013-brad-nunnally'
+      r301 '/brian-ray-chipy-chia', '/interviews/brian-ray'
+      r301 '/colin-jones', '/interviews/colin-jones'
+      r301 '/corey-haines', '/interviews/corey-haines'
+      r301 '/dan-north', '/interviews/dan-north'
+      r301 '/david-heinemeier-hansson', '/interviews/railsconf-2014-david-heinemeier-hansson'
+      r301 '/dhh', '/interviews/railsconf-2014-david-heinemeier-hansson'
+      r301 '/eric-kingery-interview', '/interviews/software-craftsmanship-north-america-2013-eric-kingery'
+      r301 '/erik-meijer', '/interviews/goto-conference-2013-erik-meijer'
+      r301 '/evan-light', '/interviews/railsconf-2014-evan-light'
+      r301 '/interview-carlos-antonio-da-silva-rails-core-team-member-railsconf-2014', '/interviews/railsconf-2014-carlos-antonio-da-silva'
+      r301 '/interview-chad-fowler-founder-rubyconf-railsconf', '/interviews/railsconf-2014-chad-fowler'
+      r301 '/interview-charles-nutter-co-lead-jruby-project', '/interviews/charles-nutter-co-lead-of-the-jruby-project'
+      r301 '/interview-courtney-hemphill-mixing-lean-agile-development-goto-chicago-2014', '/interviews/goto-conference-2014-courtney-hemphill'
+      r301 '/interview-javier-ramirez-presentation-rest-railsconf-2014', '/interviews/railsconf-2014-javier-ramirez'
+      r301 '/interview-jez-humble-devops-culture-goto-chicago-2014', '/interviews/goto-conference-2014-jez-humble'
+      r301 '/interview-max-de-marzi-organizer-graph-db-chicago-goto-chicago-2014', '/interviews/goto-conference-2014-max-de-marzi'
+      r301 '/interview-richard-lee-contributor-openstack-goto-chicago-2014/interview-with-richard-lee-a-contributor-to-openstack-at-goto-chicago-2014', '/interviews/goto-conference-2014-richard-lee'
+      r301 '/interview-sean-massa-organizer-geekfest-chicago-node-js-ember-js-user-groups', '/interviews/sean-massa'
+      r301 '/interview-vooza-founder-matt-ruby', '/interviews/matt-ruby'
+      r301 '/interview-with-fred-guime-organizer-cjug-at-goto-chicago-2014', '/interviews/goto-conference-2014-fred-guime'
+      r301 '/interviews/dhh', '/interviews/railsconf-2014-david-heinemeier-hansson'
+      r301 '/jim-remsik', '/interviews/windycityrails-2011-jim-remsik'
+      r301 '/matt-polito', '/interviews/software-craftsmanship-north-america-2012-matt-polito'
+      r301 '/mike-burton', '/interviews/mike-burton'
+      r301 '/mike-miller', '/interviews/goto-conference-2013-mike-miller'
+      r301 '/patrick-welsh', '/interviews/software-craftsmanship-north-america-2012-patrick-welsh'
+      r301 '/ray-hightower', '/interviews/railsconf-2014-ray-hightower'
+      r301 '/rich-hickey', '/interviews/goto-conference-2013-rich-hickey'
+      r301 '/ryan-singer', '/interviews/windycityrails-2011-ryan-singer'
+      r301 '/sergio-pereira', '/interviews/software-craftsmanship-north-america-2011-sergio-pereira'
+      r301 '/wp-content/uploads/2014/11/interview-with-vooza-founder-mat1.jpg', 'https://i.ytimg.com/vi/ABme515DWig/mqdefault.jpg'
     end
   end
 end
