@@ -1,16 +1,21 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :google_oauth2,
+                  Rails.application.secrets.omniauth_provider_key,
+                  Rails.application.secrets.omniauth_provider_secret,
+                  scope: 'email,profile,offline', prompt: 'consent'
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '8fb0c5efb136e0ec02f0037d18c0217b785c0e5754413749d353cff6294c203ddbe54e61708ad4db6afc8f40635435d2c6f10655eea004b98fa0e74b8b66d4b5'
+  config.secret_key = Rails.application.secrets.devise_secret_key
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'mike@ugtastic.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
