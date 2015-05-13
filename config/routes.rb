@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  devise_for :users, class_name: 'FormUser', controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
+
   get 'sitemap' => 'sitemaps#index'
 
   resources :interviews, only: %i(index show)
@@ -25,7 +27,7 @@ end
 #         new_user_session GET      /users/sign_in(.:format)               devise/sessions#new
 #             user_session POST     /users/sign_in(.:format)               devise/sessions#create
 #     destroy_user_session DELETE   /users/sign_out(.:format)              devise/sessions#destroy
-#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)        devise/omniauth_callbacks#passthru {:provider=>/(?!)/}
+#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)        devise/omniauth_callbacks#passthru {:provider=>/google_oauth2/}
 #   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format) devise/omniauth_callbacks#:action
 #            user_password POST     /users/password(.:format)              devise/passwords#create
 #        new_user_password GET      /users/password/new(.:format)          devise/passwords#new

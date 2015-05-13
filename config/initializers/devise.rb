@@ -5,6 +5,9 @@ Devise.setup do |config|
                   Rails.application.secrets.omniauth_provider_key,
                   Rails.application.secrets.omniauth_provider_secret,
                   scope: 'email,profile,offline', prompt: 'consent'
+  # config.omniauth :instagram, ENV['INSTAGRAM_APP_ID'], ENV['INSTAGRAM_APP_SECRET']
+  # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: "email"
+  # config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET']
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
