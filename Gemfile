@@ -24,8 +24,6 @@ gem 'multi_json'
 gem 'oink'
 gem 'oj'
 gem 'oj_mimic_json'
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
 gem 'paper_trail', '~> 4.0.0.beta'
 gem 'pg'
 gem 'pg_search'
@@ -39,6 +37,11 @@ gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
+
+# Authentication
+# # Google
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 # Redis
 gem 'hiredis'
