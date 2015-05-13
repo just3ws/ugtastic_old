@@ -49,8 +49,11 @@ module Ugtastic
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301 '/adam-grandy', '/interviews/windycityrails-2011-adam-grandy'
       r301 '/amitai-schlair', '/interviews/software-craftsmanship-north-america-2013-amitai-schlair'
+      r301 '/bill-scott-interview', '/interviews/webvisions-2013-bill-scott'
+      r301 '/bill-scott-interview/bill_scott_0002', '/interviews/webvisions-2013-bill-scott'
       r301 '/brad-nunnally', '/interviews/webvisions-2013-brad-nunnally'
       r301 '/brian-ray-chipy-chia', '/interviews/brian-ray'
+      r301 '/chris-whitaker', '/interviews/chris-whitaker'
       r301 '/colin-jones', '/interviews/colin-jones'
       r301 '/corey-haines', '/interviews/corey-haines'
       r301 '/dan-north', '/interviews/dan-north'
@@ -73,6 +76,8 @@ module Ugtastic
       r301 '/interview-with-fred-guime-organizer-cjug-at-goto-chicago-2014', '/interviews/goto-conference-2014-fred-guime'
       r301 '/interviews/dhh', '/interviews/railsconf-2014-david-heinemeier-hansson'
       r301 '/jim-remsik', '/interviews/windycityrails-2011-jim-remsik'
+      r301 '/joel-clermont', '/interviews/joel-clermont'
+      r301 '/mark-simpson', '/interviews/mark-simpson'
       r301 '/matt-polito', '/interviews/software-craftsmanship-north-america-2012-matt-polito'
       r301 '/mike-burton', '/interviews/mike-burton'
       r301 '/mike-lee', '/interviews/goto-conference-2015-mike-lee'
@@ -80,8 +85,12 @@ module Ugtastic
       r301 '/patrick-welsh', '/interviews/software-craftsmanship-north-america-2012-patrick-welsh'
       r301 '/ray-hightower', '/interviews/railsconf-2014-ray-hightower'
       r301 '/rich-hickey', '/interviews/goto-conference-2013-rich-hickey'
+      r301 '/rob-reynolds', '/interviews/rob-reynolds'
       r301 '/ryan-singer', '/interviews/windycityrails-2011-ryan-singer'
       r301 '/sergio-pereira', '/interviews/software-craftsmanship-north-america-2011-sergio-pereira'
+      r301 '/shay-howe-and-russ-unger-interview', '/interviews/webvisions-2013-russ-unger-and-shay-howe'
+      r301 '/wp-content/uploads/2014/06/interview-with-rainey-reitman-si.jpg', 'https://i.ytimg.com/vi/NJVMLO96bBo/mqdefault.jp://i.ytimg.com/vi/NJVMLO96bBo/mqdefault.jpg'
+      r301 '/wp-content/uploads/2014/07/interview-with-adrian-cockcroft.jpg', 'https://i.ytimg.com/vi/x4q6ZSBRRU8/mqdefault.jp://i.ytimg.com/vi/x4q6ZSBRRU8/mqdefault.jpg'
       r301 '/wp-content/uploads/2014/11/interview-with-vooza-founder-mat1.jpg', 'https://i.ytimg.com/vi/ABme515DWig/mqdefault.jpg'
     end
   end
