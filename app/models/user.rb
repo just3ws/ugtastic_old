@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :registerable, :recoverable,
          :rememberable, :trackable
 
-  has_many :identities
+  has_many :identities, dependent: :destroy
 
   def twitter
     identities.find_by(provider: 'twitter')
