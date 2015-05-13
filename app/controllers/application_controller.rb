@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
 
   before_action :log_metrics
-  before_action :get_conferences
+  before_action :conferences_for_navbar
 
   rescue_from ActionController::RoutingError, with: :not_found
 
@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: 'You need to sign in for access to this page.' unless current_user
   end
 
-  def get_conferences
+  def conferences_for_navbar
     @nav_conferences = Conference.published
   end
 end

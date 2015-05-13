@@ -6,13 +6,12 @@ gem 'rails', '~> 4.2.1'
 
 # gem 'foundation-icons-sass-rails'
 # gem 'foundation-rails'
+
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'awesome_print'
-gem 'cloudinary'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'dalli'
 gem 'dotenv-rails'
-gem 'express_pigeon'
 gem 'foreman', require: false
 gem 'friendly_id'
 gem 'google-api-client'
@@ -38,7 +37,6 @@ gem 'raygun4ruby'
 gem 'redcarpet'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
-gem 'stamp'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 

@@ -28,7 +28,7 @@ Metrics/CyclomaticComplexity:
 Metrics/PerceivedComplexity:
   Enabled: false
 
-Style/Blocks:
+Style/BlockDelimiters:
   Enabled: false
 
 Style/AndOr:
