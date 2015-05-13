@@ -15,6 +15,6 @@ class FormUser < User
   end
 
   def email_required?
-    false
+    true
   end
 end
