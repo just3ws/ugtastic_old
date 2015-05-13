@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class UserOld < ActiveRecord::Base
   enum role: %i(user vip admin)
   after_initialize :set_default_role, if: :new_record?
 
@@ -27,7 +27,7 @@ end
 
 # == Schema Information
 #
-# Table name: users
+# Table name: user_olds
 #
 #  id         :integer          not null, primary key
 #  name       :string
