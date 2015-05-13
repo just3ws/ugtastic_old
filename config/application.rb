@@ -48,6 +48,7 @@ module Ugtastic
     # rack-rewrite
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       # r301 '/interview-amanda-jesse-harlin-okc-js-thunder-plains-techlahoma'
+      r301 '/mike-lee', '/interviews/goto-conference-2015-mike-lee'
       r301 '/adam-grandy', '/interviews/windycityrails-2011-adam-grandy'
       r301 '/amitai-schlair', '/interviews/software-craftsmanship-north-america-2013-amitai-schlair'
       r301 '/brad-nunnally', '/interviews/webvisions-2013-brad-nunnally'
