@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, :database_authenticatable,
          :registerable, :recoverable,
-         :rememberable, :trackable,
-         :validatable
+         :rememberable, :trackable
 
   has_many :identities
 
