@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'sitemap' => 'sitemaps#index'
 
   resources :interviews, only: %i(index show)
@@ -20,28 +21,45 @@ end
 
 # == Route Map
 #
-#       Prefix Verb   URI Pattern                        Controller#Action
-#      sitemap GET    /sitemap(.:format)                 sitemaps#index
-#   interviews GET    /interviews(.:format)              interviews#index
-#    interview GET    /interviews/:id(.:format)          interviews#show
-#     sitemaps GET    /sitemaps(.:format)                sitemaps#index
-#  conferences GET    /conferences(.:format)             conferences#index
-#   conference GET    /conferences/:id(.:format)         conferences#show
-#        users GET    /users(.:format)                   users#index
-#              POST   /users(.:format)                   users#create
-#     new_user GET    /users/new(.:format)               users#new
-#    edit_user GET    /users/:id/edit(.:format)          users#edit
-#         user GET    /users/:id(.:format)               users#show
-#              PATCH  /users/:id(.:format)               users#update
-#              PUT    /users/:id(.:format)               users#update
-#              DELETE /users/:id(.:format)               users#destroy
-#  rails_admin        /admin                             RailsAdmin::Engine
-#              GET    /auth/:provider/callback(.:format) sessions#create
-#       signin GET    /signin(.:format)                  sessions#new
-#      signout GET    /signout(.:format)                 sessions#destroy
-# auth_failure GET    /auth/failure(.:format)            sessions#failure
-#         root GET    /                                  interviews#index
-#              GET    /*unmatched_route(.:format)        errors#intercept_404
+#                   Prefix Verb     URI Pattern                            Controller#Action
+#         new_user_session GET      /users/sign_in(.:format)               devise/sessions#new
+#             user_session POST     /users/sign_in(.:format)               devise/sessions#create
+#     destroy_user_session DELETE   /users/sign_out(.:format)              devise/sessions#destroy
+#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)        devise/omniauth_callbacks#passthru {:provider=>/(?!)/}
+#   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format) devise/omniauth_callbacks#:action
+#            user_password POST     /users/password(.:format)              devise/passwords#create
+#        new_user_password GET      /users/password/new(.:format)          devise/passwords#new
+#       edit_user_password GET      /users/password/edit(.:format)         devise/passwords#edit
+#                          PATCH    /users/password(.:format)              devise/passwords#update
+#                          PUT      /users/password(.:format)              devise/passwords#update
+# cancel_user_registration GET      /users/cancel(.:format)                devise/registrations#cancel
+#        user_registration POST     /users(.:format)                       devise/registrations#create
+#    new_user_registration GET      /users/sign_up(.:format)               devise/registrations#new
+#   edit_user_registration GET      /users/edit(.:format)                  devise/registrations#edit
+#                          PATCH    /users(.:format)                       devise/registrations#update
+#                          PUT      /users(.:format)                       devise/registrations#update
+#                          DELETE   /users(.:format)                       devise/registrations#destroy
+#                  sitemap GET      /sitemap(.:format)                     sitemaps#index
+#               interviews GET      /interviews(.:format)                  interviews#index
+#                interview GET      /interviews/:id(.:format)              interviews#show
+#                 sitemaps GET      /sitemaps(.:format)                    sitemaps#index
+#              conferences GET      /conferences(.:format)                 conferences#index
+#               conference GET      /conferences/:id(.:format)             conferences#show
+#                    users GET      /users(.:format)                       users#index
+#                          POST     /users(.:format)                       users#create
+#                 new_user GET      /users/new(.:format)                   users#new
+#                edit_user GET      /users/:id/edit(.:format)              users#edit
+#                     user GET      /users/:id(.:format)                   users#show
+#                          PATCH    /users/:id(.:format)                   users#update
+#                          PUT      /users/:id(.:format)                   users#update
+#                          DELETE   /users/:id(.:format)                   users#destroy
+#              rails_admin          /admin                                 RailsAdmin::Engine
+#                          GET      /auth/:provider/callback(.:format)     sessions#create
+#                   signin GET      /signin(.:format)                      sessions#new
+#                  signout GET      /signout(.:format)                     sessions#destroy
+#             auth_failure GET      /auth/failure(.:format)                sessions#failure
+#                     root GET      /                                      interviews#index
+#                          GET      /*unmatched_route(.:format)            errors#intercept_404
 #
 # Routes for RailsAdmin::Engine:
 #     dashboard GET         /                                      rails_admin/main#dashboard
