@@ -1,4 +1,6 @@
 class Metric < ActiveRecord::Base
+  scope :not_found, -> { where(request_action: 'intercept_404') }
+
   rails_admin do
     list do
       field :request_url do
