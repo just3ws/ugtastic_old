@@ -1,4 +1,4 @@
-class FormUser < User
+class UserForm < User
   attr_accessor :current_password
 
   validates_presence_of :email, if: :email_required?
