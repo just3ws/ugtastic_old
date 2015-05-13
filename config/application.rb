@@ -47,8 +47,6 @@ module Ugtastic
 
     # rack-rewrite
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      # r301 '/interview-amanda-jesse-harlin-okc-js-thunder-plains-techlahoma'
-      r301 '/mike-lee', '/interviews/goto-conference-2015-mike-lee'
       r301 '/adam-grandy', '/interviews/windycityrails-2011-adam-grandy'
       r301 '/amitai-schlair', '/interviews/software-craftsmanship-north-america-2013-amitai-schlair'
       r301 '/brad-nunnally', '/interviews/webvisions-2013-brad-nunnally'
@@ -61,6 +59,7 @@ module Ugtastic
       r301 '/eric-kingery-interview', '/interviews/software-craftsmanship-north-america-2013-eric-kingery'
       r301 '/erik-meijer', '/interviews/goto-conference-2013-erik-meijer'
       r301 '/evan-light', '/interviews/railsconf-2014-evan-light'
+      r301 '/interview-amanda-jesse-harlin-okc-js-thunder-plains-techlahoma', '/interviews/amanda-harlin-and-jesse-harlin'
       r301 '/interview-carlos-antonio-da-silva-rails-core-team-member-railsconf-2014', '/interviews/railsconf-2014-carlos-antonio-da-silva'
       r301 '/interview-chad-fowler-founder-rubyconf-railsconf', '/interviews/railsconf-2014-chad-fowler'
       r301 '/interview-charles-nutter-co-lead-jruby-project', '/interviews/charles-nutter-co-lead-of-the-jruby-project'
@@ -76,6 +75,7 @@ module Ugtastic
       r301 '/jim-remsik', '/interviews/windycityrails-2011-jim-remsik'
       r301 '/matt-polito', '/interviews/software-craftsmanship-north-america-2012-matt-polito'
       r301 '/mike-burton', '/interviews/mike-burton'
+      r301 '/mike-lee', '/interviews/goto-conference-2015-mike-lee'
       r301 '/mike-miller', '/interviews/goto-conference-2013-mike-miller'
       r301 '/patrick-welsh', '/interviews/software-craftsmanship-north-america-2012-patrick-welsh'
       r301 '/ray-hightower', '/interviews/railsconf-2014-ray-hightower'
