@@ -15,6 +15,20 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     generic_callback('google_oauth2')
   end
 
+  def upgrade
+    scope = nil
+    if params[:provider] == 'google_oauth2'
+      scope = 'email,profile,offline,https://www.googleapis.com/auth/admin.directory.user'
+    end
+
+    redirect_to user_omniauth_authorize_path(params[:provider]), flash: { scope: scope }
+  end
+
+  def setup
+    request.env['omniauth.strategy'].options['scope'] = flash[:scope] || request.env['omniauth.strategy'].options['scope']
+    render text: 'Setup complete.', status: 404
+  end
+
   def generic_callback(provider)
     @identity = Identity.find_for_oauth env['omniauth.auth']
 

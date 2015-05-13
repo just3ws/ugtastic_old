@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, class_name: 'FormUser', controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
+  devise_scope :user do
+    get '/users/auth/:provider/upgrade' => 'omniauth_callbacks#upgrade', as: :user_omniauth_upgrade
+    get '/users/auth/:provider/setup', to: 'omniauth_callbacks#setup'
+  end
 
   get 'sitemap' => 'sitemaps#index'
 
@@ -22,45 +26,47 @@ end
 
 # == Route Map
 #
-#                   Prefix Verb     URI Pattern                            Controller#Action
-#         new_user_session GET      /users/sign_in(.:format)               devise/sessions#new
-#             user_session POST     /users/sign_in(.:format)               devise/sessions#create
-#     destroy_user_session DELETE   /users/sign_out(.:format)              devise/sessions#destroy
-#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)        omniauth_callbacks#passthru {:provider=>/google_oauth2/}
-#   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format) omniauth_callbacks#:action
-#            user_password POST     /users/password(.:format)              devise/passwords#create
-#        new_user_password GET      /users/password/new(.:format)          devise/passwords#new
-#       edit_user_password GET      /users/password/edit(.:format)         devise/passwords#edit
-#                          PATCH    /users/password(.:format)              devise/passwords#update
-#                          PUT      /users/password(.:format)              devise/passwords#update
-# cancel_user_registration GET      /users/cancel(.:format)                registrations#cancel
-#        user_registration POST     /users(.:format)                       registrations#create
-#    new_user_registration GET      /users/sign_up(.:format)               registrations#new
-#   edit_user_registration GET      /users/edit(.:format)                  registrations#edit
-#                          PATCH    /users(.:format)                       registrations#update
-#                          PUT      /users(.:format)                       registrations#update
-#                          DELETE   /users(.:format)                       registrations#destroy
-#                  sitemap GET      /sitemap(.:format)                     sitemaps#index
-#               interviews GET      /interviews(.:format)                  interviews#index
-#                interview GET      /interviews/:id(.:format)              interviews#show
-#                 sitemaps GET      /sitemaps(.:format)                    sitemaps#index
-#              conferences GET      /conferences(.:format)                 conferences#index
-#               conference GET      /conferences/:id(.:format)             conferences#show
-#                    users GET      /users(.:format)                       users#index
-#                          POST     /users(.:format)                       users#create
-#                 new_user GET      /users/new(.:format)                   users#new
-#                edit_user GET      /users/:id/edit(.:format)              users#edit
-#                     user GET      /users/:id(.:format)                   users#show
-#                          PATCH    /users/:id(.:format)                   users#update
-#                          PUT      /users/:id(.:format)                   users#update
-#                          DELETE   /users/:id(.:format)                   users#destroy
-#              rails_admin          /admin                                 RailsAdmin::Engine
-#                          GET      /auth/:provider/callback(.:format)     sessions#create
-#                   signin GET      /signin(.:format)                      sessions#new
-#                  signout GET      /signout(.:format)                     sessions#destroy
-#             auth_failure GET      /auth/failure(.:format)                sessions#failure
-#                     root GET      /                                      interviews#index
-#                          GET      /*unmatched_route(.:format)            errors#intercept_404
+#                   Prefix Verb     URI Pattern                             Controller#Action
+#         new_user_session GET      /users/sign_in(.:format)                devise/sessions#new
+#             user_session POST     /users/sign_in(.:format)                devise/sessions#create
+#     destroy_user_session DELETE   /users/sign_out(.:format)               devise/sessions#destroy
+#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)         omniauth_callbacks#passthru {:provider=>/google_oauth2/}
+#   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format)  omniauth_callbacks#:action
+#            user_password POST     /users/password(.:format)               devise/passwords#create
+#        new_user_password GET      /users/password/new(.:format)           devise/passwords#new
+#       edit_user_password GET      /users/password/edit(.:format)          devise/passwords#edit
+#                          PATCH    /users/password(.:format)               devise/passwords#update
+#                          PUT      /users/password(.:format)               devise/passwords#update
+# cancel_user_registration GET      /users/cancel(.:format)                 registrations#cancel
+#        user_registration POST     /users(.:format)                        registrations#create
+#    new_user_registration GET      /users/sign_up(.:format)                registrations#new
+#   edit_user_registration GET      /users/edit(.:format)                   registrations#edit
+#                          PATCH    /users(.:format)                        registrations#update
+#                          PUT      /users(.:format)                        registrations#update
+#                          DELETE   /users(.:format)                        registrations#destroy
+#    user_omniauth_upgrade GET      /users/auth/:provider/upgrade(.:format) omniauth_callbacks#upgrade
+#                          GET      /users/auth/:provider/setup(.:format)   omniauth_callbacks#setup
+#                  sitemap GET      /sitemap(.:format)                      sitemaps#index
+#               interviews GET      /interviews(.:format)                   interviews#index
+#                interview GET      /interviews/:id(.:format)               interviews#show
+#                 sitemaps GET      /sitemaps(.:format)                     sitemaps#index
+#              conferences GET      /conferences(.:format)                  conferences#index
+#               conference GET      /conferences/:id(.:format)              conferences#show
+#                    users GET      /users(.:format)                        users#index
+#                          POST     /users(.:format)                        users#create
+#                 new_user GET      /users/new(.:format)                    users#new
+#                edit_user GET      /users/:id/edit(.:format)               users#edit
+#                     user GET      /users/:id(.:format)                    users#show
+#                          PATCH    /users/:id(.:format)                    users#update
+#                          PUT      /users/:id(.:format)                    users#update
+#                          DELETE   /users/:id(.:format)                    users#destroy
+#              rails_admin          /admin                                  RailsAdmin::Engine
+#                          GET      /auth/:provider/callback(.:format)      sessions#create
+#                   signin GET      /signin(.:format)                       sessions#new
+#                  signout GET      /signout(.:format)                      sessions#destroy
+#             auth_failure GET      /auth/failure(.:format)                 sessions#failure
+#                     root GET      /                                       interviews#index
+#                          GET      /*unmatched_route(.:format)             errors#intercept_404
 #
 # Routes for RailsAdmin::Engine:
 #     dashboard GET         /                                      rails_admin/main#dashboard
