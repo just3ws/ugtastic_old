@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   devise_for :users, class_name: 'FormUser', controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
 
   get 'sitemap' => 'sitemaps#index'
@@ -27,20 +26,20 @@ end
 #         new_user_session GET      /users/sign_in(.:format)               devise/sessions#new
 #             user_session POST     /users/sign_in(.:format)               devise/sessions#create
 #     destroy_user_session DELETE   /users/sign_out(.:format)              devise/sessions#destroy
-#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)        devise/omniauth_callbacks#passthru {:provider=>/google_oauth2/}
-#   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format) devise/omniauth_callbacks#:action
+#  user_omniauth_authorize GET|POST /users/auth/:provider(.:format)        omniauth_callbacks#passthru {:provider=>/google_oauth2/}
+#   user_omniauth_callback GET|POST /users/auth/:action/callback(.:format) omniauth_callbacks#:action
 #            user_password POST     /users/password(.:format)              devise/passwords#create
 #        new_user_password GET      /users/password/new(.:format)          devise/passwords#new
 #       edit_user_password GET      /users/password/edit(.:format)         devise/passwords#edit
 #                          PATCH    /users/password(.:format)              devise/passwords#update
 #                          PUT      /users/password(.:format)              devise/passwords#update
-# cancel_user_registration GET      /users/cancel(.:format)                devise/registrations#cancel
-#        user_registration POST     /users(.:format)                       devise/registrations#create
-#    new_user_registration GET      /users/sign_up(.:format)               devise/registrations#new
-#   edit_user_registration GET      /users/edit(.:format)                  devise/registrations#edit
-#                          PATCH    /users(.:format)                       devise/registrations#update
-#                          PUT      /users(.:format)                       devise/registrations#update
-#                          DELETE   /users(.:format)                       devise/registrations#destroy
+# cancel_user_registration GET      /users/cancel(.:format)                registrations#cancel
+#        user_registration POST     /users(.:format)                       registrations#create
+#    new_user_registration GET      /users/sign_up(.:format)               registrations#new
+#   edit_user_registration GET      /users/edit(.:format)                  registrations#edit
+#                          PATCH    /users(.:format)                       registrations#update
+#                          PUT      /users(.:format)                       registrations#update
+#                          DELETE   /users(.:format)                       registrations#destroy
 #                  sitemap GET      /sitemap(.:format)                     sitemaps#index
 #               interviews GET      /interviews(.:format)                  interviews#index
 #                interview GET      /interviews/:id(.:format)              interviews#show
