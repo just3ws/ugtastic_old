@@ -39,6 +39,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'uuidtools'
 
 # Authentication
+gem 'devise'
 # # Google
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
