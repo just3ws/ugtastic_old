@@ -5,9 +5,18 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,800|Open+Sans+Condensed:300,300italic,700);
 
-body {
-  background: #fff url(/images/bg_dark.png);
+html {
+  background: image-url('bg.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+/*body {*/
+/*background: #fff url(/images/bg_dark.png);*/
+/*}*/
+
 .row {
   width: 960px;
 }
@@ -571,5 +580,6 @@ ul.flyout li a:hover,
   width: 100%;
 }
 #header_title {
+  color: white;
   font-weight: 300;
 }
