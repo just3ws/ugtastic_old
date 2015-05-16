@@ -1,45 +1,135 @@
-.color1 { color: #8c9da5}
-.color2 { color: #8d99a7}
-.color3 { color: #23131d}
-.color4 { color: #6f738e}
-.color5 { color: #61606e}
-.color6 { color: #6a6470}
-.color7 { color: #5a4a54}
-.color8 { color: #2a2239}
-.color9 { color: #1c1119}
-.color10 { color: #211217}
-.color11 { color: #8d8da9}
-.color12 { color: #8f93ae}
-.color13 { color: #74636b}
-.color14 { color: #4c3c47}
-.color15 { color: #201011}
-.color16 { color: #7d5555}
-.color17 { color: #191514}
-.color18 { color: #22171d}
-.color19 { color: #454162}
-.color20 { color: #200d13}
-.color21 { color: #685b6f}
-.color22 { color: #422f31}
-.color23 { color: #261319}
-.color24 { color: #130f10}
-.color25 { color: #141011}
-.color26 { color: #9595b1}
-.color27 { color: #523b45}
-.color28 { color: #423755}
-.color29 { color: #6e808e}
-.color30 { color: #1b0c11}
-.color31 { color: #4a3437}
-.color32 { color: #211313}
-.color33 { color: #161213}
-.color34 { color: #8d98aa}
-.color35 { color: #6d4b49}
-.color36 { color: #727d8f}
-.color37 { color: #2b2028}
-.color38 { color: #3d272a}
-.color39 { color: #767c8c}
-.color40 { color: #7e8e9e}
-.color41 { color: #7c8195}
-.color42 { color: #24151a}
-.color43 { color: #5e5767}
-.color44 { color: #64626f}
-.color45 { color: #7a8694}
+.color1 {
+  color: #8c9da5;
+}
+.color2 {
+  color: #8d99a7;
+}
+.color3 {
+  color: #23131d;
+}
+.color4 {
+  color: #6f738e;
+}
+.color5 {
+  color: #61606e;
+}
+.color6 {
+  color: #6a6470;
+}
+.color7 {
+  color: #5a4a54;
+}
+.color8 {
+  color: #2a2239;
+}
+.color9 {
+  color: #1c1119;
+}
+.color10 {
+  color: #211217;
+}
+.color11 {
+  color: #8d8da9;
+}
+.color12 {
+  color: #8f93ae;
+}
+.color13 {
+  color: #74636b;
+}
+.color14 {
+  color: #4c3c47;
+}
+.color15 {
+  color: #201011;
+}
+.color16 {
+  color: #7d5555;
+}
+.color17 {
+  color: #191514;
+}
+.color18 {
+  color: #22171d;
+}
+.color19 {
+  color: #454162;
+}
+.color20 {
+  color: #200d13;
+}
+.color21 {
+  color: #685b6f;
+}
+.color22 {
+  color: #422f31;
+}
+.color23 {
+  color: #261319;
+}
+.color24 {
+  color: #130f10;
+}
+.color25 {
+  color: #141011;
+}
+.color26 {
+  color: #9595b1;
+}
+.color27 {
+  color: #523b45;
+}
+.color28 {
+  color: #423755;
+}
+.color29 {
+  color: #6e808e;
+}
+.color30 {
+  color: #1b0c11;
+}
+.color31 {
+  color: #4a3437;
+}
+.color32 {
+  color: #211313;
+}
+.color33 {
+  color: #161213;
+}
+.color34 {
+  color: #8d98aa;
+}
+.color35 {
+  color: #6d4b49;
+}
+.color36 {
+  color: #727d8f;
+}
+.color37 {
+  color: #2b2028;
+}
+.color38 {
+  color: #3d272a;
+}
+.color39 {
+  color: #767c8c;
+}
+.color40 {
+  color: #7e8e9e;
+}
+.color41 {
+  color: #7c8195;
+}
+.color42 {
+  color: #24151a;
+}
+.color43 {
+  color: #5e5767;
+}
+.color44 {
+  color: #64626f;
+}
+.color45 {
+  color: #7a8694;
+}
