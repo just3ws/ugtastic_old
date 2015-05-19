@@ -47,6 +47,9 @@ module Ugtastic
 
     # rack-rewrite
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+
+      r301 'facebook/UserGroupsFantastic', 'https://www.facebook.com/UserGroupsFantastic'
+
       r301 %r{/adam-grandy(-interview)?(\?.*)?}, '/interviews/windycityrails-2011-adam-grandy$2'
       r301 %r{/amitai-schlair(-interview)?(\?.*)?}, '/interviews/software-craftsmanship-north-america-2013-amitai-schlair$2'
       r301 %r{/bill-scott(-interview)?(\?.*)?}, '/interviews/webvisions-2013-bill-scott$2'
