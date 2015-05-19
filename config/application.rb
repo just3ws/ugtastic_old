@@ -49,6 +49,8 @@ module Ugtastic
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
 
       r301 '/facebook', 'https://www.facebook.com/UserGroupsFantastic'
+      r301 '/twitter',  'https://www.twitter.com/ugtastic'
+      r301 '/patreon',  'https://www.patreon.com/ugtastic'
 
       r301 %r{/adam-grandy(-interview)?(\?.*)?}, '/interviews/windycityrails-2011-adam-grandy$2'
       r301 %r{/amitai-schlair(-interview)?(\?.*)?}, '/interviews/software-craftsmanship-north-america-2013-amitai-schlair$2'
