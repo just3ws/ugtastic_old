@@ -1,9 +1,10 @@
-██╗   ██╗ ██████╗████████╗ █████╗ ███████╗████████╗██╗ ██████╗
-██║   ██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝██║██╔════╝
-██║   ██║██║  ███╗  ██║   ███████║███████╗   ██║   ██║██║
-██║   ██║██║   ██║  ██║   ██╔══██║╚════██║   ██║   ██║██║
-╚██████╔╝╚██████╔╝  ██║   ██║  ██║███████║   ██║   ██║╚██████╗
- ╚═════╝  ╚═════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝ ╚═════╝
+M""MMMMM""M MM'"""""`MM   dP                       dP   oo
+M  MMMMM  M M' .mmm. `M   88                       88
+M  MMMMM  M M  MMMMMMMM d8888P .d8888b. .d8888b. d8888P dP .d8888b.
+M  MMMMM  M M  MMM   `M   88   88'  `88 Y8ooooo.   88   88 88'  `""
+M  `MMM'  M M. `MMM' .M   88   88.  .88       88   88   88 88.  ...
+Mb       dM MM.     .MM   dP   `88888P8 `88888P'   dP   dP `88888P'
+MMMMMMMMMMM MMMMMMMMMMM
 
 WHOIS Tech Community
 
@@ -12,10 +13,10 @@ WHOIS Tech Community
 
 
 /* TEAM */
-  Founder & Interviewer: Mike Hall
-  Site: https://www.ugtastic.com
-  Twitter: ugtastic
-  GitHub: https://github.com/ugtastic
+  Creator:  Mike Hall
+  Site:     https://www.ugtastic.com
+  Twitter:  https://twitter.com/ugtastic
+  GitHub:   https://github.com/ugtastic
   Location: Crystal Lake, IL
 
 /* SITE */
@@ -30,10 +31,10 @@ WHOIS Tech Community
 
 /* Patreon Patrons */
 
-  Patron: Your Name Here
-  Site: example.com
-  Twitter: twitter
-  Location: Earth
+  Patron:  Amitai Schlair
+  GitHub:  https://github.com/schmonz
+  Site:    http://www.schmonz.com
+  Twitter: https://twitter.com/schmonz
 
 /* Interviewees */
 
