@@ -36,6 +36,11 @@ WHOIS Tech Community
   Site:    http://www.schmonz.com
   Twitter: https://twitter.com/schmonz
 
+  Patron:  Sean Massa
+  GitHub:  https://github.com/endangeredmassa
+  Site:    http://massalabs.com
+  Twitter: https://twitter.com/endangeredmassa
+
 /* Interviewees */
 
   TODO
