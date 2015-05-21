@@ -419,7 +419,7 @@ GEM
       rack
     rb-fchange (0.0.6)
       ffi
-    rb-fsevent (0.9.4)
+    rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.2.3)
