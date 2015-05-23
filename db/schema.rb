@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513035320) do
+ActiveRecord::Schema.define(version: 20150523033253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20150513035320) do
     t.string   "subtitle"
     t.integer  "status",          default: 0,     null: false
     t.integer  "conference_id"
+    t.integer  "priority",        default: 0
   end
 
   add_index "you_tube_videos", ["slug"], name: "index_you_tube_videos_on_slug", unique: true, using: :btree

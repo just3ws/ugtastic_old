@@ -21,8 +21,7 @@ class InterviewsController < ApplicationController
                        else
                          YouTube::Video
                          .includes(:conference, :interviewees)
-                         .published
-                         .order(id: 'asc')
+                         .published.order('priority desc, id asc')
                        end
   end
 

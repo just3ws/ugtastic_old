@@ -47,7 +47,6 @@ module Ugtastic
 
     # rack-rewrite
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-
       r301 '/facebook', 'https://www.facebook.com/UserGroupsFantastic'
       r301 '/twitter',  'https://www.twitter.com/ugtastic'
       r301 '/patreon',  'https://www.patreon.com/ugtastic'
