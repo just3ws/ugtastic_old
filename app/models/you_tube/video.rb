@@ -116,6 +116,8 @@ module YouTube
       end
 
       edit do
+        field :priority
+
         field :title
         field :context
         field :subtitle
@@ -170,5 +172,4 @@ end
 #  subtitle        :string
 #  status          :integer          default(0), not null
 #  conference_id   :integer
-#  priority        :integer          default(0)
 #
