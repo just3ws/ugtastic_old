@@ -6,7 +6,7 @@ class ConferencesController < ApplicationController
   def show
     @conference = Conference.friendly.find(params[:id])
     @header_title = "#{@conference.name} Interviews"
-    @you_tube_videos = @conference.interviews
+    @interviews = @conference.interviews
 
     render 'interviews/index'
   end

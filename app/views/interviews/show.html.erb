@@ -1,17 +1,17 @@
 <%
     meta \
-      title: title_for_interview(@you_tube_video),
+      title: title_for_interview(@interview),
       twitter: {
         card: :summary,
         site: '@ugtastic',
-        title: title_for_interview(@you_tube_video),
+        title: title_for_interview(@interview),
         domain: 'ugtastic.com',
-        description: @you_tube_video.subtitle
+        description: @interview.subtitle
       }
 %>
 
 <%- content_for :canonical_tag do -%>
-  <link rel='canonical' href="<%= interview_url(@you_tube_video, host: 'www.ugtastic.com', protocol: 'https://') -%>" />
+  <link rel='canonical' href="<%= interview_url(@interview, host: 'www.ugtastic.com', protocol: 'https://') -%>" />
 <%- end -%>
 
 <div class="row page_wrap" style="margin-top:-2px">
@@ -25,8 +25,8 @@
     </div>
 
     <div class="heading_dots" style="margin-bottom:15px">
-      <h1 class="<%= @you_tube_video.interviewee_names.length >= 32 ? 'heading_largesize' : 'heading_supersize' %>">
-        <span class="heading_center_bg"><%= @you_tube_video.interviewee_names %></span>
+      <h1 class="<%= @interview.interviewee_names.length >= 32 ? 'heading_largesize' : 'heading_supersize' %>">
+        <span class="heading_center_bg"><%= @interview.interviewee_names %></span>
       </h1>
     </div>
 
@@ -37,18 +37,18 @@
           type="text/html"
           width="640"
           height="390"
-          src="https://www.youtube.com/embed/<%= @you_tube_video.remote_video_id %>?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&autohide=1&color=white&theme=light&origin=<%= ENV['YOUTUBE_EMBED_ORIGIN'] %>"
+          src="https://www.youtube.com/embed/<%= @interview.remote_video_id %>?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&autohide=1&color=white&theme=light&origin=<%= ENV['YOUTUBE_EMBED_ORIGIN'] %>"
           frameborder="0"
           allowfullscreen></iframe>
       </div>
     </div>
 
-    <% if @you_tube_video.subtitle.present? %>
+    <% if @interview.subtitle.present? %>
       <h4>
-        <%= @you_tube_video.subtitle %>
-        <% if @you_tube_video.at_conference? %>
+        <%= @interview.subtitle %>
+        <% if @interview.at_conference? %>
           <strong>@</strong>
-          <%= @you_tube_video.conference_name %> <%= @you_tube_video.conference.city %> <%= @you_tube_video.conference_year %>
+          <%= @interview.conference_name %> <%= @interview.conference.city %> <%= @interview.conference_year %>
         <% end %>
       </h4>
     <% end %>
@@ -59,17 +59,17 @@
         <dl class="tabs two-up">
           <dd class="active"><a href="#simple1">Description</a></dd>
 
-          <% @you_tube_video.transcripts.each_with_object(1) do |transcript, i| %>
+          <% @interview.transcripts.each_with_object(1) do |transcript, i| %>
             <dd><a href="#simple<%= i += 1 %>"><%= "Transcript #{transcript.using_default_locale? ? '' : "(#{transcript.locale})" }" %></a></dd>
           <% end %>
         </dl>
 
         <ul class="tabs-content">
           <li class="active" id="simple1Tab">
-            <%= raw(MARKDOWN.render(@you_tube_video.description)) %>
+            <%= raw(MARKDOWN.render(@interview.description)) %>
           </li>
 
-          <% @you_tube_video.transcripts.each_with_object(1) do |transcript, i| %>
+          <% @interview.transcripts.each_with_object(1) do |transcript, i| %>
             <li id="simple<%= i += 1 %>Tab">
               <%= raw(MARKDOWN.render(transcript.text)) %>
             </li>
