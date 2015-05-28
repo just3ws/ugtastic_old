@@ -272,7 +272,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.2)
-    minitest (5.6.1)
+    minitest (5.7.0)
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -524,7 +524,7 @@ GEM
     timecop (0.7.3)
     timers (4.0.1)
       hitimes
-    tins (1.5.1)
+    tins (1.5.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
