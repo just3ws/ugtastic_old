@@ -31,15 +31,19 @@ WHOIS Tech Community
 
 /* Patreon Patrons */
 
-  Patron:  Amitai Schlair
-  GitHub:  https://github.com/schmonz
-  Site:    http://www.schmonz.com
-  Twitter: https://twitter.com/schmonz
+  Patron:  Carol Fowler
+  Site:    http://thesocialreports.com
+  Twitter: https://twitter.com/thesocreports
 
   Patron:  Sean Massa
   GitHub:  https://github.com/endangeredmassa
   Site:    http://massalabs.com
   Twitter: https://twitter.com/endangeredmassa
+
+  Patron:  Amitai Schlair
+  GitHub:  https://github.com/schmonz
+  Site:    http://www.schmonz.com
+  Twitter: https://twitter.com/schmonz
 
 /* Interviewees */
 
