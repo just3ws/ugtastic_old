@@ -192,7 +192,7 @@ GEM
     guard-rails (0.7.1)
       guard (~> 2.11)
       guard-compat (~> 1.0)
-    guard-rspec (4.5.1)
+    guard-rspec (4.5.2)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -624,4 +624,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.2
+   1.10.3
