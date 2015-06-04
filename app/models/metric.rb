@@ -3,13 +3,16 @@ class Metric < ActiveRecord::Base
 
   rails_admin do
     list do
+      sort_by :created_at
       field :request_url do
         pretty_value do
           URI.parse(value).path
         end
       end
       field :request_user_agent
-      field :created_at
+      field :created_at do
+        sort_reverse true
+      end
     end
   end
 end
