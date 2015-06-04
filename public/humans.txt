@@ -31,6 +31,9 @@ WHOIS Tech Community
 
 /* Patreon Patrons */
 
+  Patron:  Angelika Zalewski
+  Twitter: https://twitter.com/angelika_zski
+
   Patron:  Carol Fowler
   Site:    http://thesocialreports.com
   Twitter: https://twitter.com/thesocreports
