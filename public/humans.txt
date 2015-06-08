@@ -31,6 +31,11 @@ WHOIS Tech Community
 
 /* Patreon Patrons */
 
+  Patron:  Dave Duggal
+  Twitter: https://twitter.com/dave_ideate
+  Twitter: https://twitter.com/enterpriseweb
+  Site:    https://www.enterpriseweb.com
+
   Patron:  Angelika Zalewski
   Twitter: https://twitter.com/angelika_zski
 
