@@ -4,7 +4,10 @@ class Conference < ActiveRecord::Base
   scope :published, -> { where.not(name: 'Null') }
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :slug_candidates, use: :slugged
+  def slug_candidates
+    [ %i(name city year) ]
+  end
 
   include PgSearch
   multisearchable against: %i(name year country homepage city address), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)
