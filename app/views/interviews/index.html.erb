@@ -24,7 +24,7 @@
           <% if interview.subtitle.present? %>
             <h5 class="box-subtitle"><%= interview.subtitle %></h5>
           <% end %>
-          <p><%= truncate(raw(MARKDOWN.render(interview.description)), length: 140, omission: '…') %></p>
+          <p><%= truncate(strip_tags(MARKDOWN.render(interview.description)), length: 140, omission: '…') %></p>
           <% if interview.at_conference? %>
             <div class="box_comment conference"><p><%= link_to "#{interview.conference_name} #{interview.conference_city} #{interview.conference_year}", interview.conference %></p></div>
           <% end %>
