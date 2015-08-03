@@ -193,7 +193,7 @@ GEM
     guard-rails (0.7.1)
       guard (~> 2.11)
       guard-compat (~> 1.0)
-    guard-rspec (4.6.3)
+    guard-rspec (4.6.4)
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
@@ -290,7 +290,7 @@ GEM
     oink (0.10.1)
       activerecord
       hodel_3000_compliant_logger
-    oj (2.12.10)
+    oj (2.12.11)
     oj_mimic_json (1.0.1)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
