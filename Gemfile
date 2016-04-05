@@ -4,10 +4,6 @@ ruby '2.3.0'
 
 gem 'rails', '~> 4.2.6'
 
-# gem 'foundation-icons-sass-rails'
-# gem 'foundation-rails'
-
-# gem 'reform'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'awesome_print'
 gem 'coffee-rails', '~> 4.1.0'

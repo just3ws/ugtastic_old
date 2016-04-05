@@ -26,6 +26,6 @@ namespace :cleanup do
       Metric.where('request_user_agent ilike ?', "%#{fragment}%").destroy_all
     end
 
-    ActiveRecord::Base.connection.execute "delete from metrics where id = any(array(select id from metrics order by created_at desc offset 2048))"
+    ActiveRecord::Base.connection.execute 'delete from metrics where id = any(array(select id from metrics order by created_at desc offset 2048))'
   end
 end

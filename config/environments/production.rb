@@ -23,7 +23,7 @@ Rails.application.configure do
   config.assets.digest = true
   config.assets.js_compressor = :uglifier
   config.cache_classes = true
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.eager_load = true
   config.force_ssl = ENV['FORCE_SSL'].present?
   config.i18n.fallbacks = true

@@ -4,9 +4,9 @@ module ActiveRecord
       super
 
       definitions.each do |name, values|
-        define_method("#{ name }_enum") { self.class.send(name.to_s.pluralize).to_a }
+        define_method("#{name}_enum") { self.class.send(name.to_s.pluralize).to_a }
 
-        define_method("#{ name }=") do |value|
+        define_method("#{name}=") do |value|
           if value.is_a?(String) and value.to_i.to_s == value
             super value.to_i
           else

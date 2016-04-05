@@ -6,7 +6,7 @@ class Conference < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
   def slug_candidates
-    [ %i(name city year) ]
+    [%i(name city year)]
   end
 
   include PgSearch

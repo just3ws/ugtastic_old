@@ -27,7 +27,7 @@ RSpec.describe YouTube::Video, type: :model do
   end
 
   context '#thumbnail' do
-    subject { YouTube::Video.new(cache: { 'snippet' => { 'thumbnails' => { 'default' => {}, 'medium' => {}, 'high' => {}, 'standard' => {} } } })   }
+    subject { YouTube::Video.new(cache: { 'snippet' => { 'thumbnails' => { 'default' => {}, 'medium' => {}, 'high' => {}, 'standard' => {} } } }) }
     it 'returns a default thumbnail' do
       expect(subject.thumbnail).to be_an OpenStruct
     end

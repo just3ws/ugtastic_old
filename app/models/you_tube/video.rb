@@ -95,7 +95,7 @@ module YouTube
       when 'default', 'medium', 'high', 'standard'
         @thumbnail[size] ||= OpenStruct.new(cache['snippet']['thumbnails'][size])
       else
-        fail "Unknown thumbnail size \"#{size}\"."
+        raise "Unknown thumbnail size \"#{size}\"."
       end
 
       @thumbnail[size]
