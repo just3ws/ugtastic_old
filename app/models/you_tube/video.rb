@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # TODO: Status for display on the site. State for sync. Probably need a better name for these.
 module YouTube
   class Video < ActiveRecord::Base

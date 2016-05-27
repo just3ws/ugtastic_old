@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Metric < ActiveRecord::Base
   scope :not_found, -> { where(request_action: 'intercept_404') }
 

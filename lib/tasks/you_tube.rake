@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # require 'dotenv/tasks'
 # require 'google/api_client'
 

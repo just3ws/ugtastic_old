@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateNotFounds < ActiveRecord::Migration
   def change
     create_table :not_founds, id: :uuid do |t|

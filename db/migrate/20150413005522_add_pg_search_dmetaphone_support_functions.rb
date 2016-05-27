@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddPgSearchDmetaphoneSupportFunctions < ActiveRecord::Migration
   def self.up
     say_with_time('Adding support functions for pg_search :dmetaphone') do

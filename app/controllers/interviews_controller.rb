@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class InterviewsController < ApplicationController
   def index
     @interviews = if params[:q].present?
@@ -8,8 +9,8 @@ class InterviewsController < ApplicationController
                     found_ids = PgSearch
                                 .multisearch(@query)
                                 .where(searchable_type: 'YouTube::Video')
-                                .pluck(:searchable_id)
                                 .uniq
+                                .pluck(:searchable_id)
                                 .sort
 
                     YouTube::Video
@@ -22,7 +23,7 @@ class InterviewsController < ApplicationController
                     YouTube::Video
                       .includes(:conference, :interviewees)
                       .published.order('priority desc, id asc')
-                       end
+                  end
   end
 
   def show

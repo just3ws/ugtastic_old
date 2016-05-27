@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Conference < ActiveRecord::Base
   has_many :interviews, class_name: 'YouTube::Video', inverse_of: :conference
 

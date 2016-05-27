@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UserForm < User
   attr_accessor :current_password
 

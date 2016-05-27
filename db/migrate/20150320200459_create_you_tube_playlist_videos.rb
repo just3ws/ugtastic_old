@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateYouTubePlaylistVideos < ActiveRecord::Migration
   def change
     create_table :you_tube_playlist_videos do |t|

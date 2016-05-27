@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateVersionAssociations < ActiveRecord::Migration
   def self.up
     create_table :version_associations do |t|
@@ -6,7 +7,7 @@ class CreateVersionAssociations < ActiveRecord::Migration
       t.integer :foreign_key_id
     end
     add_index :version_associations, [:version_id]
-    add_index :version_associations, [:foreign_key_name, :foreign_key_id], name: 'index_version_associations_on_foreign_key'
+    add_index :version_associations, %i(foreign_key_name foreign_key_id), name: 'index_version_associations_on_foreign_key'
   end
 
   def self.down

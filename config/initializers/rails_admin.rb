@@ -1,13 +1,14 @@
+# frozen_string_literal: true
 module ActiveRecord
   module RailsAdminEnum
     def enum(definitions)
       super
 
-      definitions.each do |name, values|
+      definitions.each do |name, _values|
         define_method("#{name}_enum") { self.class.send(name.to_s.pluralize).to_a }
 
         define_method("#{name}=") do |value|
-          if value.is_a?(String) and value.to_i.to_s == value
+          if value.is_a?(String) && value.to_i.to_s == value
             super value.to_i
           else
             super value

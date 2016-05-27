@@ -1,27 +1,32 @@
+# frozen_string_literal: true
 Rails.application.configure do
-  config.assets.cache_store = :dalli_store, ENV['MEMCACHEDCLOUD_SERVERS'], {
-    namespace: 'ugtastic-assets.cache_store',
-    expires_in: 7.days,
-    compress: true,
-    username: ENV['MEMCACHEDCLOUD_USERNAME'],
-    password: ENV['MEMCACHEDCLOUD_PASSWORD']
-  }
-  config.cache_store = :dalli_store, ENV['MEMCACHEDCLOUD_SERVERS'], {
-    namespace: 'ugtastic-cache_store',
-    expires_in: 7.days,
-    compress: true,
-    username: ENV['MEMCACHEDCLOUD_USERNAME'],
-    password: ENV['MEMCACHEDCLOUD_PASSWORD']
-  }
+  config.assets.cache_store =
+    :dalli_store, ENV['MEMCACHEDCLOUD_SERVERS'], {
+      namespace: 'ugtastic-assets.cache_store',
+      expires_in: 7.days,
+      compress: true,
+      username: ENV['MEMCACHEDCLOUD_USERNAME'],
+      password: ENV['MEMCACHEDCLOUD_PASSWORD']
+    }
+  config.cache_store =
+    :dalli_store, ENV['MEMCACHEDCLOUD_SERVERS'], {
+      namespace: 'ugtastic-cache_store',
+      expires_in: 7.days,
+      compress: true,
+      username: ENV['MEMCACHEDCLOUD_USERNAME'],
+      password: ENV['MEMCACHEDCLOUD_PASSWORD']
+    }
 
   config.action_controller.perform_caching = true
   config.action_dispatch.rack_cache = true
   config.active_record.dump_schema_after_migration = false
   config.active_support.deprecation = :notify
+
   config.assets.compile = false
   config.assets.css_compressor = :sass
   config.assets.digest = true
   config.assets.js_compressor = :uglifier
+
   config.cache_classes = true
   config.consider_all_requests_local = false
   config.eager_load = true

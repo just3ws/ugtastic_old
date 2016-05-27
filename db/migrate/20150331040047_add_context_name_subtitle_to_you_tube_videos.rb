@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddContextNameSubtitleToYouTubeVideos < ActiveRecord::Migration
   def change
     add_column :you_tube_videos, :context,  :string

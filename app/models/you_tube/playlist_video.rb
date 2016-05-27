@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module YouTube
   class PlaylistVideo < ActiveRecord::Base
     belongs_to :playlist, class_name: 'YouTube::Playlist'

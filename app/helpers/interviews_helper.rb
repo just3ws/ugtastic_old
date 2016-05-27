@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module InterviewsHelper
   def title_for_interview(you_tube_video)
     if you_tube_video.at_conference?

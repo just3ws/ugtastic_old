@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 class Transcript < ActiveRecord::Base
   enum format: %i(transcription caption)
-  DEFAULT_LOCALE ||= 'en'.freeze
+  DEFAULT_LOCALE ||= 'en'
 
   include PgSearch
   multisearchable against: %i(text), using: %i(tsearch trigram dmetaphone), ignoring: %i(accents)

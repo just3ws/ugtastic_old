@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class VideoInterviewee < ActiveRecord::Base
   belongs_to :video, class_name: 'YouTube::Video', inverse_of: :video_interviewees
   validates :video, presence: true

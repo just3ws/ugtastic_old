@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe YouTube::Video, type: :model do
   describe 'validations' do
     it { should have_many :playlists }

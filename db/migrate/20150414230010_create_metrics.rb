@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateMetrics < ActiveRecord::Migration
   def change
     enable_extension 'uuid-ossp'

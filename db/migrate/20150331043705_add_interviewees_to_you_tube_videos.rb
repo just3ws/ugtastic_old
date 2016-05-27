@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddIntervieweesToYouTubeVideos < ActiveRecord::Migration
   def change
     add_column :you_tube_videos, :interviewees, :string, array: true

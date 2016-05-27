@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     if resource.encrypted_password.blank? # || params[:password].blank?
