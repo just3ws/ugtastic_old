@@ -14,14 +14,14 @@ class InterviewsController < ApplicationController
                                 .sort
 
                     YouTube::Video
-                      .includes(:conference, :interviewees)
+                      .includes(:conference)
                       .published
                       .where('you_tube_videos.id in (?)', found_ids)
                       .order(id: 'asc')
 
                   else
                     YouTube::Video
-                      .includes(:conference, :interviewees)
+                      .includes(:conference)
                       .published.order('priority desc, id asc')
                   end
   end
