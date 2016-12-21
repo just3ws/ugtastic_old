@@ -551,7 +551,7 @@ DEPENDENCIES
   rack-cache
   rack-livereload
   rack-rewrite
-  rails (~> 4.2.6)
+  rails (~> 4.2.7)
   rails-erd
   rails_12factor
   rails_admin
